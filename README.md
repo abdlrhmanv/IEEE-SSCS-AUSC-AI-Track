@@ -1,8 +1,12 @@
-<h1 align="center">IEEE SSCS AUSC — AI Training Tasks</h1>
+<h1 align="center">IEEE SSCS AUSC — AI Track Portfolio</h1>
 
 <p align="center">
-  <em>Artificial Intelligence &amp; Machine Learning tasks assigned by the<br/>
-  IEEE Solid-State Circuits Society · Alexandria University Student Chapter</em>
+  <img src="assets/ieee-logo.jpeg" alt="IEEE SSCS AUSC logo" width="140">
+</p>
+
+<p align="center">
+  <em>Coursework and projects from the IEEE Solid-State Circuits Society<br/>
+  Alexandria University Student Chapter AI track</em>
 </p>
 
 <p align="center">
@@ -15,162 +19,95 @@
 
 ---
 
-## 👨‍💻 About Me
+## About
 
-I'm **Abdlrhman Ismail**, a Senior Computer Engineering student at **Ain Shams University (ASU)** and an active member of the **AI Committee** at IEEE SSCS AUSC. This repository documents my assignments, projects, and growth throughout the AI training track.
+I'm **Abdlrhman Ismail**, a Senior Computer Engineering student at **Ain Shams University (ASU)** and a member of the **AI Committee** at IEEE SSCS AUSC.
+
+This repository is a **learning portfolio**, not a single application. It follows two chronological phases:
+
+1. **Machine Learning** — weekly tasks, then Project 1 and Project 2  
+2. **Natural Language Processing** — NLP team work after the ML phase
 
 ---
 
-## 📂 Repository Structure
+## Repository structure
 
-```
+```text
 IEEE-SSCS-AUSC-AI-Tasks/
-├── Task0/                          # Initial Task — Matrix Ops & Trapezoid Rule
-│   ├── Hello IEEE/
-│   │   ├── Code/                   # Pure-Python matrix operations
-│   │   └── Research/               # Research papers
-│   │       ├── Trapezoid Rule.pdf
-│   │       └── Matrix Normalization in AI.pdf
-│   ├── Task 0 - initial Task - AI Team.pdf
-│   └── README.md
-├── Task1/                          # NumPy Assignment — Core Ops & Linear Regression
-│   ├── NumPy Assignment/
-│   │   ├── Code/                   # NumPy scripts
-│   │   │   ├── Core NumPy Operations/
-│   │   │   └── Linear Regression from Scratch (Normal Equation)/
-│   │   └── Research/
-│   │       └── Research.pdf
-│   └── README.md
-├── Task2/                          # Pandas — Titanic Exploratory Data Analysis
-│   ├── Python Code/
-│   │   ├── DataSet/                # Titanic CSV + column reference image
-│   │   └── task.ipynb              # Main Jupyter Notebook (full EDA pipeline)
-│   ├── Slides/                     # Lecture slides
-│   ├── Written Report/             # PDF report
-│   └── README.md
-├── Task3/                          # Data Visualization — Matplotlib & Seaborn
-│   ├── Python Code/
-│   │   └── task.ipynb              # Main Jupyter Notebook (Steps 1–6 + insights)
-│   ├── Written Report/             # PDF report
-│   ├── Visualization_Task_IEEE_SSCS.pdf
-│   ├── Visualization_Study_Plan_IEEE_SSCS.pdf
-│   └── README.md
-├── Task4/                          # Zara Sales — Comprehensive EDA
-│   ├── zara_eda_task.ipynb         # Main notebook (full Zara EDA workflow)
-│   ├── Zara_sales_EDA.csv          # Dataset used for analysis
-│   ├── Task 1 - level 2.pdf        # Task description / assignment sheet
-│   └── README.md
-├── Task5/                          # Regression — California Housing (Level 1)
-│   ├── task.ipynb                  # Main notebook (from-scratch + sklearn comparison)
-│   ├── housing.csv                 # California housing dataset
-│   ├── Level-1_Task-5.pdf          # Task sheet
-│   ├── Material/                   # Supporting slides/screenshots
-│   └── README.md
-├── Task6/                          # Polynomial Regression — Auto MPG
-│   ├── task.ipynb                  # Main notebook (poly degrees, Ridge/Lasso, metrics)
-│   ├── Written Report/             # PDF report
-│   ├── poly_regression_task.pdf    # Task sheet
-│   └── README.md
-├── Task7/                          # Classification — Logistic Regression (Level 1)
-│   ├── classification.py           # LogisticRegression from scratch
-│   ├── main.py                     # 4D XOR (+ AND sanity check)
-│   ├── Task2_Sigmoid/              # Sigmoid implementation + plot
-│   ├── Task1_BCE_Derivation/       # BCE gradient derivation (typed reference)
-│   └── README.md
-├── Task8/                          # ML Task 2 — KNN & Logistic Regression sweeps
-│   ├── task.ipynb                  # KNN K-sweep + LR learning-rate / iterations
-│   ├── mushrooms.csv               # UCI / Kaggle mushroom dataset
-│   └── README.md
-├── Task9/                          # Stacking ensemble + Optuna max_depth
-│   ├── task.ipynb                  # LR+kNN+DT stacking + Optuna Decision Tree
-│   ├── heart.csv / winequality-red.csv
-│   └── README.md
-├── Task10/                         # Classification mega-task + SVM kernels research
-│   ├── Task 0 - Decision Tree/
-│   ├── Task 1 - SVM linear/
-│   ├── Task 2 - SVM RBF/
-│   ├── Task 3 - Randomforest/
-│   ├── Task 4 - Research/
-│   └── README.md
-├── Project2/                       # Smart Home (Level 1) — voice login + control
-│   ├── Project 2.pdf               # Assignment sheet
-│   ├── README.md                   # Team roles + ML pipeline docs
-│   └── ml/                         # AI package (STT, speaker ID, commands)
-├── README.md                       # ← You are here
-└── ...                             # Future tasks will be added here
+├── assets/ieee-logo.jpeg
+├── Machine-Learning/
+│   ├── Tasks/Task0 … Task10
+│   ├── Project1/          # stub → team Uber price-prediction repo
+│   └── Project2/          # stub → Smart Home voice-control repo
+└── NLP/
+    ├── Task0/
+    └── Week1/
 ```
 
----
-
-## 📝 Task Progress
-
-|  #  | Task                | Description                                                 | Status  |
-| :-: | :------------------ | :---------------------------------------------------------- | :-----: |
-| 00  | **Initial Task**    | Matrix operations from scratch (no NumPy) + research papers  | ✅ Done |
-| 01  | **NumPy Assignment**| Core NumPy operations + linear regression (normal equation) + research | ✅ Done |
-| 02  | **Pandas EDA**      | Titanic dataset: cleaning, EDA, analysis & insights, visualizations    | ✅ Done |
-| 03  | **Visualization**   | Matplotlib & Seaborn: line/scatter, styling, distributions, comparisons, heatmaps, storytelling | ✅ Done |
-| 04  | **Zara Sales EDA**  | End-to-end exploratory analysis: data quality, univariate/bivariate study, anomalies, and business insights | ✅ Done |
-| 05  | **Regression (Level 1)** | California Housing: Normal Equation + Gradient Descent (from scratch), sklearn comparison, custom MSE/MAE | ✅ Done |
-| 06  | **Polynomial Regression** | Auto MPG: poly degrees 2–5, Ridge/Lasso + GridSearchCV, MSE/MAE/RMSE/MAPE/R², residual analysis | ✅ Done |
-| 07  | **Classification (Level 1)** | BCE gradient derivation, sigmoid plot, logistic regression from scratch, 4D XOR test | ✅ Done |
-| 08  | **ML Task 2 (Level 1)** | Mushroom dataset: KNN K-sweep, LR learning-rate & iteration analysis (F1 curves) | ✅ Done |
-| 09  | **Stacking + Optuna** | Heart Disease stacking (LR+kNN+DT); Wine Quality Optuna `max_depth` for Decision Tree | ✅ Done |
-| 10  | **Classification + Research** | DT F1–depth, SVM linear/RBF, RF+Optuna, 5-page SVM kernels report | ✅ Done |
-| P2  | **Smart Home (Level 1)** | Voice password (Whisper STT) + speaker ID + command recognition → Streamlit / Arduino | 🚧 In progress |
-
-> _This table is updated as I progress through the track._
+Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/README.md`](NLP/README.md)
 
 ---
 
-## 🤖 AI Assistance Disclosure
+## Phase 1 — Machine Learning
 
-Some notebook **markdown explanations** and **documentation comments** were generated with AI assistance, then reviewed and used in the final submitted work.
+|  #  | Item | Description | Status |
+| :-: | :--- | :---------- | :----: |
+| 00 | [Task 0](Machine-Learning/Tasks/Task0) | Matrix operations from scratch + research | Done |
+| 01 | [Task 1](Machine-Learning/Tasks/Task1) | NumPy + linear regression (normal equation) | Done |
+| 02 | [Task 2](Machine-Learning/Tasks/Task2) | Titanic EDA (Pandas) | Done |
+| 03 | [Task 3](Machine-Learning/Tasks/Task3) | Matplotlib & Seaborn | Done |
+| 04 | [Task 4](Machine-Learning/Tasks/Task4) | Zara sales EDA | Done |
+| 05 | [Task 5](Machine-Learning/Tasks/Task5) | California Housing regression | Done |
+| 06 | [Task 6](Machine-Learning/Tasks/Task6) | Polynomial regression (Auto MPG) | Done |
+| 07 | [Task 7](Machine-Learning/Tasks/Task7) | Logistic regression from scratch | Done |
+| 08 | [Task 8](Machine-Learning/Tasks/Task8) | KNN / logistic hyperparameter sweeps | Done |
+| 09 | [Task 9](Machine-Learning/Tasks/Task9) | Stacking + Optuna | Done |
+| 10 | [Task 10](Machine-Learning/Tasks/Task10) | DT / SVM / RF + SVM kernels report | Done |
+| P1 | [Project 1](Machine-Learning/Project1) | Uber price prediction (team repo) | Separate repo |
+| P2 | [Project 2](Machine-Learning/Project2) | Smart Home voice control | Separate repo |
 
 ---
 
-## 🛠️ Tech Stack & Tools
+## Phase 2 — Natural Language Processing
 
-| Category            | Tools                                                 |
-| :------------------ | :---------------------------------------------------- |
-| **Language**        | Python 3 🐍                                           |
-| **Libraries**       | NumPy · Pandas · Matplotlib · Scikit-Learn            |
-| **Environment**     | Linux (Pop!\_OS / Mint) · VS Code · Jupyter Notebooks |
-| **Version Control** | Git & GitHub                                          |
+| Item | Description | Status |
+| :--- | :---------- | :----: |
+| [Task 0](NLP/Task0) | Vector rotation notebook | In progress |
+| [Week 1](NLP/Week1) | Lecture notebooks + Neurova Project 1 | In progress |
 
 ---
 
-## 🚀 Getting Started
+## Getting started
+
+There is **no** root `requirements.txt`. Each task or project has its own dependencies.
 
 ```bash
-# 1. Clone the repository
 git clone git@github.com:abdlrhmanv/IEEE-SSCS-AUSC-AI-Tasks.git
 cd IEEE-SSCS-AUSC-AI-Tasks
 
-# 2. (Recommended) Create & activate a virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 
-# 3. Install dependencies (when applicable)
-pip install -r requirements.txt
+# Example: Task 10
+pip install -r Machine-Learning/Tasks/Task10/requirements.txt
 ```
 
-> **Note:** Task 0 uses only the Python standard library — no extra dependencies needed.
+Task 0 (ML) uses only the Python standard library.
+
+Smart Home (Project 2) is **not** vendored here. Clone and install from [smart-home-voice-control](https://github.com/abdlrhmanv/smart-home-voice-control).
 
 ---
 
-## 📬 Contact
+## AI assistance
 
-Always happy to chat about **AI**, **Software Engineering**, or **Mathematics** — feel free to reach out!
-
-|                 |                                                            |
-| --------------- | ---------------------------------------------------------- |
-| 📧 **Email**    | [abdlrhmanv@icloud.com](mailto:abdlrhmanv@icloud.com)      |
-| 💼 **LinkedIn** | [Abdlrhman Ismail](https://www.linkedin.com/in/abdlrhmanv) |
-| 🐙 **GitHub**   | [@abdlrhmanv](https://github.com/abdlrhmanv)               |
+Some notebook markdown explanations and documentation comments were drafted with AI assistance, then reviewed for submission.
 
 ---
 
-<p align="center">
-  Made with ❤️ by <strong>Abdlrhman Ismail</strong>
-</p>
+## Contact
+
+| | |
+| --- | --- |
+| Email | [abdlrhmanv@icloud.com](mailto:abdlrhmanv@icloud.com) |
+| LinkedIn | [Abdlrhman Ismail](https://www.linkedin.com/in/abdlrhmanv) |
+| GitHub | [@abdlrhmanv](https://github.com/abdlrhmanv) |

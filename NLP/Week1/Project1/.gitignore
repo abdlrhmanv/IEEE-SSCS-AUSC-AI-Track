@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models and data (keep directory structure)
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.bin
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,2 @@
+kernel,C,train_acc,train_f1,test_acc,test_f1,n_support_vectors
+linear,1.0,0.7481234361968306,0.7568438003220612,0.7375,0.7482014388489209,717

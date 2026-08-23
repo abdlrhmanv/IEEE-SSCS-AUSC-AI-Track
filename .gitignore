@@ -2,6 +2,8 @@
 .venv/
 venv/
 env/
+**/.venv/
+**/venv/
 
 # ── Python ──
 __pycache__/
@@ -11,6 +13,12 @@ __pycache__/
 dist/
 build/
 *.egg
+
+# ── Tests / coverage ──
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
 
 # ── Jupyter Notebooks ──
 .ipynb_checkpoints/
@@ -26,6 +34,7 @@ desktop.ini
 *.swp
 *.swo
 *~
+*.log
 
 # ── Documents (PDFs are the final versions) ──
 *.docx
@@ -33,3 +42,7 @@ desktop.ini
 
 # ── LibreOffice Lock Files ──
 .~lock.*#
+
+# ── Local clones of standalone repos (portfolio uses README stubs) ──
+/Project1/
+/Project2/

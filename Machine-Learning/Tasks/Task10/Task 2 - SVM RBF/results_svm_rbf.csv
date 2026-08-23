@@ -1,0 +1,2 @@
+kernel,C,gamma,train_acc,train_f1,test_acc,test_f1,n_support_vectors
+rbf,1.0,scale,0.7998331943286072,0.8113207547169812,0.755,0.7644230769230769,732

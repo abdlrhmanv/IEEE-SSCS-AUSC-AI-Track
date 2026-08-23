@@ -1,0 +1,2 @@
+max_depth,n_estimators,min_samples_split,min_samples_leaf,max_features,criterion,cv_f1,train_f1,test_f1,test_acc
+30,324,8,1,,entropy,0.8215022855197821,0.9852140077821012,0.8186046511627907,0.805
