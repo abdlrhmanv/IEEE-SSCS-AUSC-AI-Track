@@ -9,12 +9,18 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Models and data (keep directory structure)
+# Tests
+.pytest_cache/
+pytest-cache-files-*/
+
+# Weights and local data (keep directory structure via .gitkeep)
 *.pkl
 *.joblib
 *.h5
 *.pt
 *.bin
+data/raw/**/*.csv
+data/processed/*.csv
 
 # OS / IDE
 .DS_Store
