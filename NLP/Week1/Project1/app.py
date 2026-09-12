@@ -3,7 +3,7 @@
 import streamlit as st
 
 from src.pipeline import NeurovaNLPPipeline
-from src.validation import EmptyTextError
+from src.validation import EmptyTextError, NonLinguisticTextError
 
 st.set_page_config(page_title="Neurova NLP", page_icon="💬", layout="centered")
 
@@ -18,6 +18,11 @@ DEMOS = {
 @st.cache_resource
 def load_pipeline() -> NeurovaNLPPipeline:
     return NeurovaNLPPipeline.load()
+
+
+def _fill_demo(sample: str) -> None:
+    """Callback runs before widgets on the next rerun, so ``draft`` is writable."""
+    st.session_state.draft = sample
 
 
 st.markdown(
@@ -51,14 +56,18 @@ st.caption("Demo examples")
 demo_cols = st.columns(4)
 for col, (label, sample) in zip(demo_cols, DEMOS.items()):
     with col:
-        if st.button(label, use_container_width=True):
-            st.session_state.draft = sample
-            st.rerun()
+        st.button(
+            label,
+            key=f"demo-{label}",
+            on_click=_fill_demo,
+            args=(sample,),
+            use_container_width=True,
+        )
 
 if clicked:
     try:
         result = nlp.analyze(st.session_state.draft)
-    except (EmptyTextError, TypeError) as exc:
+    except (EmptyTextError, NonLinguisticTextError, TypeError) as exc:
         st.warning(str(exc))
     else:
         st.divider()

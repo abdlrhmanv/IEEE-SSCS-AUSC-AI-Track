@@ -29,10 +29,13 @@ Introductory NLP notebook (`task0.ipynb`) and `vector_rotation.py`, with `desert
 
 ```bash
 cd NLP/Week1/Project1
-python3 -m venv .venv
+python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+python -m pytest tests/ -q
 streamlit run app.py
 ```
+
+Saved models are in Git. Datasets are not required to run the app. Full notes: [`Project1/README.md`](Week1/Project1/README.md).
 
 Do **not** commit `.venv/`.

@@ -15,7 +15,7 @@ from .Arabic_model import ArabicSentimentModel
 from .English_model import EnglishSentimentModel
 from .labels import ARABIC
 from .language_model import LanguageClassifier
-from .validation import EmptyTextError, validate_text
+from .validation import EmptyTextError, NonLinguisticTextError, validate_text
 
 
 class NeurovaNLPPipeline:
@@ -55,4 +55,9 @@ def predict(text: str) -> dict[str, str]:
     return NeurovaNLPPipeline.load().analyze(text)
 
 
-__all__ = ["EmptyTextError", "NeurovaNLPPipeline", "predict"]
+__all__ = [
+    "EmptyTextError",
+    "NonLinguisticTextError",
+    "NeurovaNLPPipeline",
+    "predict",
+]

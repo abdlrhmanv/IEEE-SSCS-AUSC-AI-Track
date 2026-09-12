@@ -1,8 +1,8 @@
 # Project 1 — Neurova NLP
 
-Classical NLP system that **detects whether user text is Arabic or English**, then runs the matching sentiment classifier. No Transformers.
+Classical NLP system that detects whether user text is **Arabic or English**, then runs the matching sentiment classifier. No Transformers and no neural networks.
 
-The app shows exactly three fields from the assignment PDF:
+The app shows the three fields required by the assignment brief:
 
 | Field | Values |
 | :--- | :--- |
@@ -14,111 +14,154 @@ The app shows exactly three fields from the assignment PDF:
 
 ```text
 User Text
-    → Language Detector  (char TF-IDF + Linear SVM)
-         ├─ Arabic  → Arabic sentiment model
-         └─ English → English sentiment model
+    → validate (empty / no letters → error)
+    → Language preprocessing          preprocess_language_detection
+    → Fitted char TF-IDF (2–5)
+    → Linear SVM
+         ├─ Arabic  → preprocess_arabic  → fitted word+char TF-IDF → Logistic Regression
+         └─ English → preprocess_english → fitted word TF-IDF (1–2) → Linear SVM
     → { User Text, Language, Sentiment Classification }
 ```
 
-Mixed-language policy (not specified in the PDF): **if both Arabic and Latin letters are present, route to Arabic** (loanwords such as `iPhone` / `AI` are common in Arabic reviews). Latin only → English. Digits or emoji only → English.
+Runtime language detection is the saved sklearn Pipeline. There is no Unicode/script shortcut for Arabic vs English.
+
+The brief does not define mixed Arabic+English input. Mixed-script strings are classified by the same SVM. Training includes a small set of mixed rows labeled Arabic because Arabic reviews in this dataset often contain Latin product names (`iPhone`, `AI`). Observed examples after the leak-free split: `iPhone ممتاز` → Arabic, `hello مرحبا` → English.
+
+Digits, punctuation, or emoji with **no letters** are rejected before classification. That check is a robustness addition, not a brief requirement.
 
 ## Datasets
 
-Place the CSVs under `data/raw/` (they are gitignored — too large for Git):
+The CSVs are gitignored (too large for Git). Download them only if you want to **retrain**:
 
-| Language | File | Source |
+| Language | Path | Source |
 | :--- | :--- | :--- |
 | Arabic | `data/raw/arabic/Final_Data.csv` | [Arabic customer reviews](https://www.kaggle.com/datasets/mohamedramadan2040/arabic-customer-reviews) |
 | English | `data/raw/english/MovieReviewTrainingDatabase.csv` | [IMDb binary sentiment](https://www.kaggle.com/datasets/mwallerphunware/imbd-movie-reviews-for-binary-sentiment-analysis) |
 
-English is **binary** (`Positive` / `Negative`). Arabic is **3-class** (`Positive` / `Negative` / `Neutral`). Neutral is not assumed for English.
+English is **binary** (`Positive` / `Negative`). Arabic is **3-class** (`Positive` / `Negative` / `Neutral`). Neutral is not a class for English.
 
-## Project structure
+Inference does **not** need the CSVs. The three `models/*.pkl` files are tracked in Git (about 1.4–2.6 MB each, under GitHub’s 100 MB file limit). Git LFS is not used.
+
+## Repository structure
 
 ```text
-Project1/
-├── app.py                      # Streamlit UI
+NLP/Week1/Project1/
+├── app.py
 ├── requirements.txt
 ├── src/
-│   ├── Preprocessing_pipeline.py
-│   ├── labels.py
-│   ├── English_model.py
-│   ├── Arabic_model.py
+│   ├── Preprocessing_pipeline.py   # required
+│   ├── English_model.py            # required
+│   ├── Arabic_model.py             # required
 │   ├── language_model.py
-│   ├── pipeline.py             # NeurovaNLPPipeline
+│   ├── language_dataset.py
+│   ├── pipeline.py
 │   └── validation.py
 ├── notebooks/
-│   ├── Training_english_model.ipynb
-│   ├── Training_arabic_model.ipynb
-│   └── Training_language_classifier.ipynb
-├── models/                     # *.pkl (gitignored)
-├── data/raw/{arabic,english}/
+│   ├── Training_english_model.ipynb            # required
+│   ├── Training_arabic_model.ipynb             # required
+│   └── Training_language_classifier.ipynb      # required
+├── models/
+│   ├── Arabic_model_weights.pkl                # required
+│   ├── English_model_weights.pkl               # required
+│   └── Language_classifier_weights.pkl         # required
+├── data/raw/{arabic,english}/                  # CSVs not in Git
+├── scripts/retrain.py
 └── tests/
+```
+
+Clone path in this portfolio repo:
+
+```bash
+git clone https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track.git
+cd IEEE-SSCS-AUSC-AI-Track/NLP/Week1/Project1
 ```
 
 ## Preprocessing
 
-Three **separate** pipelines — not one cleaner for all models:
+Training and inference import the same functions:
 
 | Function | Steps |
 | :--- | :--- |
-| `preprocess_english` | lowercase → URLs → HTML → unwanted chars → whitespace |
-| `preprocess_arabic` | URLs → punctuation → tashkeel → tatweel → Alef → Ya → whitespace |
-| `preprocess_language_detection` | URLs → HTML → keep letters (any script) |
+| `preprocess_english` | lowercase → URLs/HTML → contraction expansion (`wasn't` → `was not`) → unwanted chars → whitespace |
+| `preprocess_arabic` | URLs → emoji → punctuation → tashkeel → tatweel → Alef → Ya → whitespace |
+| `preprocess_language_detection` | lowercase → URLs/HTML → keep letters (any script) |
 
 Arabic stopwords stay off by default so `مش حلو` does not become `حلو`.
 
-## Feature extraction
+## Feature extraction and models
 
-Classical only: Bag of Words, word TF-IDF, word n-grams, character n-grams.
+Classical only: Bag of Words, word TF-IDF, word n-grams, character n-grams, FeatureUnion.
 
-## Models tried
+Winner per pipeline is chosen on a **validation** split (test is held out). Language-ID sources are split **before** derived examples are created.
 
-| Pipeline | Classifiers | Features |
-| :--- | :--- | :--- |
-| English sentiment | Naive Bayes, Logistic Regression, Linear SVM | TF-IDF uni, TF-IDF uni+bi, Bag of Words |
-| Arabic sentiment | Naive Bayes, Logistic Regression, Linear SVM | Word TF-IDF, word n-grams, char n-grams (`char_wb` 3–5) |
-| Language ID | Linear SVM | Character TF-IDF (2–5) |
+| Pipeline | Selected model | Features | Held-out test |
+| :--- | :--- | :--- | :--- |
+| Language | Linear SVM | Char TF-IDF (2–5) | Accuracy / macro-F1 **0.9996** |
+| English | Linear SVM | Word TF-IDF (1–2 grams) | Accuracy **0.9010**, Positive F1 **0.9016** |
+| Arabic | Logistic Regression (`class_weight=balanced`) | Word n-grams (1–2) + char_wb 3–5 | Accuracy **0.8130**, **macro-F1 0.6240** |
 
-Winner per pipeline is chosen on a **validation** split (test is held out).
+Pickles store the **entire** sklearn Pipeline (fitted vectorizer + classifier). Inference never fits a new vocabulary.
 
-## Best models
+### Language confusion matrix
 
-Chosen on validation, then scored once on the held-out test set:
+Labels `['Arabic', 'English']`:
 
-| Pipeline | Model | Features | Test F1 |
-| :--- | :--- | :--- | ---: |
-| Language | Linear SVM | Char TF-IDF (2–5) | 0.999 |
-| English | Linear SVM | Word TF-IDF (1–2 grams) | 0.892 |
-| Arabic | Linear SVM | Character n-grams (`char_wb` 3–5) | 0.589 (macro) |
+|  | Pred Arabic | Pred English |
+| :--- | ---: | ---: |
+| **True Arabic** | 14177 | 2 |
+| **True English** | 9 | 14170 |
 
-English F1 is binary (Positive). Arabic F1 is **macro** because Neutral is rare. Language F1 is macro over Arabic/English.
+### English confusion matrix
 
-Pickles store the **entire** sklearn Pipeline (vectorizer + classifier).
+Labels `['Negative', 'Positive']`:
 
-## Evaluation
+|  | Pred Negative | Pred Positive |
+| :--- | ---: | ---: |
+| **True Negative** | 2229 | 257 |
+| **True Positive** | 236 | 2259 |
 
-Reported in each notebook: accuracy, precision, recall, F1, confusion matrix.
+### Arabic confusion matrix and Neutral
 
-Macro-F1 is used for Arabic because Neutral is rare (~5%). Binary F1 (Positive class) is used for English.
+Labels `['Negative', 'Neutral', 'Positive']`:
+
+|  | Pred Negative | Pred Neutral | Pred Positive |
+| :--- | ---: | ---: | ---: |
+| **True Negative** | 2316 | 122 | 324 |
+| **True Neutral** | 158 | 77 | 141 |
+| **True Positive** | 427 | 259 | 3827 |
+
+Neutral is about 5% of the Arabic data and the labels are noisy. After class weighting and train-fold oversampling:
+
+| Class | Precision | Recall | F1 |
+| :--- | ---: | ---: | ---: |
+| Negative | 0.798 | 0.839 | 0.818 |
+| Neutral | 0.168 | 0.205 | 0.185 |
+| Positive | 0.892 | 0.848 | 0.869 |
+
+Neutral is still not reliable. Macro-F1 is the honest metric; accuracy overstates quality.
 
 ## Installation
 
+Python **3.13** was used for the saved weights (`scikit-learn==1.9.0`). Use the pinned versions in `requirements.txt` so pickle load stays compatible.
+
 ```bash
 cd NLP/Week1/Project1
-python3 -m venv .venv
+python3.13 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Download the two CSVs into `data/raw/` as above, then run the three notebooks in order (English → Arabic → language) to write `models/*.pkl`.
+If `python3.13` is not on your PATH, `python3 -m venv .venv` is fine when that interpreter is 3.13.
 
 ## How to run
 
 ```bash
 streamlit run app.py
-pytest tests/ -q
+# or: python -m streamlit run app.py
+python -m pytest tests/ -q
 ```
+
+The app: type Arabic or English text, click **Analyze**. Demo buttons fill the text box; click Analyze afterward.
 
 ## Example usage
 
@@ -133,8 +176,6 @@ print(nlp.analyze("الخدمة سيئة جدا ولن أكرر التجربة")
 # {'User Text': '...', 'Language': 'Arabic', 'Sentiment Classification': 'Negative'}
 ```
 
-Demo cases (also buttons in the UI):
-
 | Input | Language | Sentiment |
 | :--- | :--- | :--- |
 | I absolutely loved this movie. | English | Positive |
@@ -142,14 +183,30 @@ Demo cases (also buttons in the UI):
 | الخدمة ممتازة والتجربة كانت رائعة | Arabic | Positive |
 | الخدمة سيئة جدا ولن أكرر التجربة | Arabic | Negative |
 
-Empty text raises `EmptyTextError`. Corrupted pickles raise `RuntimeError`.
+Empty text raises `EmptyTextError`. Input with no Arabic or English letters raises `NonLinguisticTextError`. Corrupted pickles raise `RuntimeError`.
+
+## Retraining
+
+Place the two CSVs under `data/raw/` as in the table above, then:
+
+```bash
+# notebooks (open from the notebooks/ directory, or in Jupyter)
+# Training_english_model.ipynb
+# Training_arabic_model.ipynb
+# Training_language_classifier.ipynb
+
+python scripts/retrain.py                 # all three models
+python scripts/retrain.py --language-only # language classifier only
+```
+
+`models/training_metrics.json` is rewritten by the script. Sentiment notebooks must be re-run if you change those models.
 
 ## Limitations
 
-- **Negation scope** — `The movie wasn't bad` and `الفيلم مش وحش` are often predicted Negative.
+- **Negation scope** — `The movie wasn't bad` and `الفيلم مش وحش` are often still predicted Negative. Expanding English contractions helps tokenization; it does not model “not + bad = good.”
 - **Sarcasm** — `Great, another terrible movie.` is not understood as a rhetorical device.
-- **Very short text** — `ok` / `تمام` have little signal.
+- **Very short text** — `ok` / `تمام` have little sentiment signal (language ID works; polarity is weak).
+- **Arabic Neutral** — rare and noisy; macro-F1 remains much lower than accuracy.
+- **Mixed language** — classified by the SVM; Latin-heavy mixed strings may be English, product-name mixes may be Arabic.
 - **Slang and dialect** — sparse in TF-IDF.
-- **Spelling variation** — Arabic char n-grams help; they do not fix everything.
-- **Mixed language** — routed to Arabic by policy, which can be wrong for English-majority mixed text.
-- **Arabic Neutral** — rare class; macro-F1 is much lower than accuracy.
+- **Unsupported scripts** — Chinese/Cyrillic/etc. with no Arabic or Latin letters are rejected as non-linguistic. French/German look like English to the detector.

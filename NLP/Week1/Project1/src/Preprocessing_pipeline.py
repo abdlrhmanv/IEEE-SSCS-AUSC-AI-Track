@@ -41,6 +41,20 @@ _WHITESPACE_RE = re.compile(r"\s+")
 # English: letters, digits, apostrophe (don't / wasn't).
 _EN_KEEP_RE = re.compile(r"[^a-z0-9'\s]+")
 
+# Expand common contractions so sklearn word tokens keep negation intact.
+# "wasn't bad" → "was not bad" (bigram "not bad" is a usable feature).
+_CONTRACTION_RES: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"\bcan't\b"), "cannot"),
+    (re.compile(r"\bwon't\b"), "will not"),
+    (re.compile(r"\bain't\b"), "is not"),
+    (re.compile(r"n't\b"), " not"),
+    (re.compile(r"'re\b"), " are"),
+    (re.compile(r"'ve\b"), " have"),
+    (re.compile(r"'ll\b"), " will"),
+    (re.compile(r"'d\b"), " would"),
+    (re.compile(r"'m\b"), " am"),
+)
+
 # Arabic diacritics (tashkeel) and kashida (tatweel).
 _TASHKEEL_RE = re.compile(
     r"[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E8\u06EA-\u06ED]"
@@ -52,6 +66,10 @@ _YA_RE = re.compile(r"ى")
 # Punctuation including Arabic comma / semicolon / question mark.
 _AR_PUNCT_RE = re.compile(
     r"[!\"#$%&'()*+,\-./:;<=>?@\[\\\]^_`{|}~،؛؟٪٫٬«»…•–—]+"
+)
+# Emoji and other symbols (not Arabic/Latin letters or digits).
+_AR_EMOJI_RE = re.compile(
+    r"[\U0001F300-\U0001FAFF\U00002700-\U000027BF\U00002600-\U000026FF]+"
 )
 
 # Language ID: Unicode letters only (the actual language signal).
@@ -136,6 +154,12 @@ def _remove_html(text: str) -> str:
 
 def _strip_web_noise(text: str) -> str:
     return _remove_html(_remove_urls(text))
+
+
+def _expand_contractions(text: str) -> str:
+    for pattern, replacement in _CONTRACTION_RES:
+        text = pattern.sub(replacement, text)
+    return text
 
 
 def _require_nltk(packages: Iterable[str]) -> None:
@@ -229,6 +253,7 @@ def preprocess_english(
     """
     text = _as_text(text).lower()
     text = _strip_web_noise(text)
+    text = _expand_contractions(text)
     text = _EN_KEEP_RE.sub(" ", text)
     text = _normalize_whitespace(text)
 
@@ -267,6 +292,7 @@ def preprocess_arabic(
     """
     text = _as_text(text)
     text = _strip_web_noise(text)
+    text = _AR_EMOJI_RE.sub(" ", text)
     text = _AR_PUNCT_RE.sub(" ", text)
     text = _TASHKEEL_RE.sub("", text)
     text = _TATWEEL_RE.sub("", text)

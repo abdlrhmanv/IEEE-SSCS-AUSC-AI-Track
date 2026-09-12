@@ -42,13 +42,29 @@ ENGLISH_FEATURE_NAMES: tuple[str, ...] = (
 ENGLISH_MODEL_NAMES: tuple[str, ...] = (MODEL_NB, MODEL_LR, MODEL_SVM)
 
 
+# After contraction expansion, this still keeps leftover apostrophes if any.
+_TOKEN_PATTERN = r"(?u)\b\w+(?:'\w+)?\b"
+
+
 def make_vectorizer(feature_name: str):
     if feature_name == FEATURE_TFIDF_UNI:
-        return TfidfVectorizer(ngram_range=(1, 1), max_features=MAX_FEATURES)
+        return TfidfVectorizer(
+            ngram_range=(1, 1),
+            max_features=MAX_FEATURES,
+            token_pattern=_TOKEN_PATTERN,
+        )
     if feature_name == FEATURE_TFIDF_BI:
-        return TfidfVectorizer(ngram_range=(1, 2), max_features=MAX_FEATURES)
+        return TfidfVectorizer(
+            ngram_range=(1, 2),
+            max_features=MAX_FEATURES,
+            token_pattern=_TOKEN_PATTERN,
+        )
     if feature_name == FEATURE_BOW:
-        return CountVectorizer(ngram_range=(1, 1), max_features=MAX_FEATURES)
+        return CountVectorizer(
+            ngram_range=(1, 1),
+            max_features=MAX_FEATURES,
+            token_pattern=_TOKEN_PATTERN,
+        )
     raise ValueError(f"Unknown feature config: {feature_name!r}")
 
 
@@ -56,9 +72,9 @@ def make_classifier(model_name: str):
     if model_name == MODEL_NB:
         return MultinomialNB()
     if model_name == MODEL_LR:
-        return LogisticRegression(max_iter=1000)
+        return LogisticRegression(max_iter=2000)
     if model_name == MODEL_SVM:
-        return LinearSVC(max_iter=1000)
+        return LinearSVC(max_iter=2000)
     raise ValueError(f"Unknown model: {model_name!r}")
 
 

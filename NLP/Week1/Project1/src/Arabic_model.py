@@ -1,7 +1,8 @@
 """Arabic sentiment models: baseline, experiment grid, inference wrapper.
 
 Word vectorizers do **not** use an English tokenizer or English stopwords.
-Character n-grams are included because Arabic spelling variation is common.
+Character n-grams help with spelling variation. Word n-grams keep negation
+spans such as ``لا يستحق`` and ``مش وحش``.
 """
 
 from __future__ import annotations
@@ -13,7 +14,7 @@ import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import Pipeline
+from sklearn.pipeline import FeatureUnion, Pipeline
 from sklearn.svm import LinearSVC
 
 from .Preprocessing_pipeline import preprocess_arabic
@@ -25,10 +26,13 @@ DEFAULT_WEIGHTS = (
 )
 
 MAX_FEATURES = 30000
+UNION_WORD_FEATURES = 20000
+UNION_CHAR_FEATURES = 20000
 
 FEATURE_WORD_TFIDF = "Word TF-IDF"
 FEATURE_WORD_NGRAM = "Word n-grams"
 FEATURE_CHAR_NGRAM = "Character n-grams"
+FEATURE_WORD_CHAR = "Word + char n-grams"
 
 MODEL_NB = "Naive Bayes"
 MODEL_LR = "Logistic Regression"
@@ -38,6 +42,7 @@ ARABIC_FEATURE_NAMES: tuple[str, ...] = (
     FEATURE_WORD_TFIDF,
     FEATURE_WORD_NGRAM,
     FEATURE_CHAR_NGRAM,
+    FEATURE_WORD_CHAR,
 )
 ARABIC_MODEL_NAMES: tuple[str, ...] = (MODEL_NB, MODEL_LR, MODEL_SVM)
 
@@ -62,16 +67,42 @@ def make_vectorizer(feature_name: str):
             ngram_range=(3, 5),
             max_features=MAX_FEATURES,
         )
+    if feature_name == FEATURE_WORD_CHAR:
+        return FeatureUnion(
+            [
+                (
+                    "word",
+                    TfidfVectorizer(
+                        analyzer="word",
+                        ngram_range=(1, 2),
+                        max_features=UNION_WORD_FEATURES,
+                    ),
+                ),
+                (
+                    "char",
+                    TfidfVectorizer(
+                        analyzer="char_wb",
+                        ngram_range=(3, 5),
+                        max_features=UNION_CHAR_FEATURES,
+                    ),
+                ),
+            ]
+        )
     raise ValueError(f"Unknown feature config: {feature_name!r}")
 
 
-def make_classifier(model_name: str):
+def make_classifier(model_name: str, *, class_weight: str | None = "balanced"):
+    """LR / SVM use class_weight because Neutral is ~5% of the Arabic data.
+
+    Naive Bayes has no class_weight; ``fit_prior=True`` (sklearn default)
+    still uses empirical class frequencies.
+    """
     if model_name == MODEL_NB:
         return MultinomialNB()
     if model_name == MODEL_LR:
-        return LogisticRegression(max_iter=1000)
+        return LogisticRegression(max_iter=2000, class_weight=class_weight)
     if model_name == MODEL_SVM:
-        return LinearSVC(max_iter=1000)
+        return LinearSVC(max_iter=2000, class_weight=class_weight)
     raise ValueError(f"Unknown model: {model_name!r}")
 
 
@@ -85,8 +116,8 @@ def build_arabic_pipeline(feature_name: str, model_name: str) -> Pipeline:
 
 
 def build_arabic_baseline() -> Pipeline:
-    """Phase 7 default: word TF-IDF + logistic regression."""
-    return build_arabic_pipeline(FEATURE_WORD_TFIDF, MODEL_LR)
+    """Word n-grams + balanced logistic regression (negation-aware default)."""
+    return build_arabic_pipeline(FEATURE_WORD_NGRAM, MODEL_LR)
 
 
 class ArabicSentimentModel:

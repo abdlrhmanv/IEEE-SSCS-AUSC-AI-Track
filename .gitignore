@@ -46,3 +46,6 @@ desktop.ini
 # ── Local clones of standalone repos (portfolio uses README stubs) ──
 /Project1/
 /Project2/
+
+# ── Unrelated local scans (not part of this course repo) ──
+/Assignments/

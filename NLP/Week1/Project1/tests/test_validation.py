@@ -1,8 +1,8 @@
-"""Reject empty / invalid input; allow digits and symbols."""
+"""Reject empty / non-linguistic input; allow short real words."""
 
 import pytest
 
-from src.validation import EmptyTextError, validate_text
+from src.validation import EmptyTextError, NonLinguisticTextError, validate_text
 
 
 def test_empty_string():
@@ -35,16 +35,24 @@ def test_pipeline_whitespace(nlp):
         nlp.analyze("   ")
 
 
-def test_digits_are_allowed(nlp):
-    result = nlp.analyze("123")
-    assert result["Language"] in {"Arabic", "English"}
-    assert "Sentiment Classification" in result
+def test_digits_rejected(nlp):
+    with pytest.raises(NonLinguisticTextError, match="meaningful"):
+        nlp.analyze("12345")
 
 
-def test_symbols_only_are_allowed(nlp):
-    result = nlp.analyze("!!! ???")
-    assert result["Language"] in {"Arabic", "English"}
-    assert "Sentiment Classification" in result
+def test_punctuation_rejected(nlp):
+    with pytest.raises(NonLinguisticTextError, match="meaningful"):
+        nlp.analyze("!!!")
+
+
+def test_emoji_only_rejected(nlp):
+    with pytest.raises(NonLinguisticTextError, match="meaningful"):
+        nlp.analyze("🎉🎉🎉")
+
+
+def test_symbols_only_are_rejected(nlp):
+    with pytest.raises(NonLinguisticTextError):
+        nlp.analyze("!!! ???")
 
 
 def test_corrupted_weights(tmp_path, monkeypatch):

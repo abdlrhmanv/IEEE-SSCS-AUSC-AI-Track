@@ -1,0 +1,82 @@
+name: Neurova NLP
+
+on:
+  push:
+    paths:
+      - "NLP/Week1/Project1/**"
+      - ".github/workflows/neurova-nlp.yml"
+  pull_request:
+    paths:
+      - "NLP/Week1/Project1/**"
+      - ".github/workflows/neurova-nlp.yml"
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Install, test, and smoke inference
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: NLP/Week1/Project1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Required artifacts exist
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          names = [
+              "Preprocessing_pipeline.py",
+              "English_model.py",
+              "Arabic_model.py",
+          ]
+          src = Path("src")
+          for name in names:
+              path = src / name
+              assert path.is_file(), name
+          notebooks = Path("notebooks")
+          for name in (
+              "Training_arabic_model.ipynb",
+              "Training_english_model.ipynb",
+              "Training_language_classifier.ipynb",
+          ):
+              assert (notebooks / name).is_file(), name
+          models = Path("models")
+          for name in (
+              "Arabic_model_weights.pkl",
+              "English_model_weights.pkl",
+              "Language_classifier_weights.pkl",
+          ):
+              path = models / name
+              assert path.is_file() and path.stat().st_size > 10_000, name
+          print("all nine required deliverables present")
+          PY
+
+      - name: Pytest
+        run: python -m pytest tests/ -q
+
+      - name: Inference smoke test
+        run: |
+          python - <<'PY'
+          from src.pipeline import NeurovaNLPPipeline
+          nlp = NeurovaNLPPipeline.load()
+          en = nlp.analyze("I absolutely loved this movie.")
+          ar = nlp.analyze("الخدمة سيئة جدا ولن أكرر التجربة")
+          keys = {"User Text", "Language", "Sentiment Classification"}
+          assert set(en) == keys and set(ar) == keys
+          assert en["Language"] == "English" and en["Sentiment Classification"] == "Positive"
+          assert ar["Language"] == "Arabic" and ar["Sentiment Classification"] == "Negative"
+          print(en)
+          print(ar)
+          PY

@@ -23,7 +23,8 @@ def test_arabic_routes_to_arabic_sentiment(nlp):
     assert result["Sentiment Classification"] == NEGATIVE
 
 
-def test_mixed_language_uses_arabic_model(nlp):
+def test_mixed_product_name_routes_to_arabic_positive(nlp):
     result = nlp.analyze("iPhone ممتاز")
     assert result["Language"] == ARABIC
     assert result["Sentiment Classification"] == POSITIVE
+    assert result["User Text"] == "iPhone ممتاز"

@@ -13,7 +13,7 @@ venv/
 .pytest_cache/
 pytest-cache-files-*/
 
-# Weights and local data (keep directory structure via .gitkeep)
+# Local data (too large for Git) and extra weight dumps
 *.pkl
 *.joblib
 *.h5
@@ -21,6 +21,12 @@ pytest-cache-files-*/
 *.bin
 data/raw/**/*.csv
 data/processed/*.csv
+models/*.png
+
+# Required submission weights (must be in Git / the zip)
+!models/Arabic_model_weights.pkl
+!models/English_model_weights.pkl
+!models/Language_classifier_weights.pkl
 
 # OS / IDE
 .DS_Store
