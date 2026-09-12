@@ -8,8 +8,8 @@ There is no Week 2 or Week 3 material in this repository yet. Empty week folders
 
 ```text
 NLP/
-├── Task0/                 # Vector rotation (images + notebook)
 └── Week1/
+    ├── Task0/             # Vector rotation (images + notebook)
     ├── 1672026.pdf
     ├── project_1_neurova_nlp.pdf
     ├── code/              # Week 1 lecture / practice notebooks
@@ -18,7 +18,7 @@ NLP/
 
 ## Task 0
 
-Introductory NLP notebook (`task0.ipynb`) and `vector_rotation.py`, with `desert.jpg` / `forest.jpg`.
+Introductory NLP notebook (`task0.ipynb`) and `vector_rotation.py`, with `desert.jpg` / `forest.jpg`, in [`Week1/Task0/`](Week1/Task0).
 
 ## Week 1
 

@@ -2,7 +2,15 @@
 
 import pytest
 
-from src.validation import EmptyTextError, NonLinguisticTextError, validate_text
+from src.validation import (
+    EmptyAfterPreprocessError,
+    EmptyTextError,
+    NonLinguisticTextError,
+    has_linguistic_content,
+    validate_text,
+)
+
+FRIENDLY = "meaningful Arabic or English text"
 
 
 def test_empty_string():
@@ -53,6 +61,45 @@ def test_emoji_only_rejected(nlp):
 def test_symbols_only_are_rejected(nlp):
     with pytest.raises(NonLinguisticTextError):
         nlp.analyze("!!! ???")
+
+
+@pytest.mark.parametrize(
+    "text",
+    ["؟؟؟", "١٢٣", "َُِ"],
+)
+def test_arabic_non_letters_are_not_linguistic(text):
+    assert not has_linguistic_content(text)
+    with pytest.raises(NonLinguisticTextError, match=FRIENDLY):
+        validate_text(text)
+
+
+@pytest.mark.parametrize("text", ["؟؟؟", "١٢٣", "َُِ"])
+def test_pipeline_arabic_non_letters(nlp, text):
+    with pytest.raises(NonLinguisticTextError, match=FRIENDLY):
+        nlp.analyze(text)
+
+
+@pytest.mark.parametrize("text", ["https://example.com", "<br>"])
+def test_url_and_html_only_are_empty_after_preprocess(text):
+    assert has_linguistic_content(text)
+    with pytest.raises(EmptyAfterPreprocessError, match=FRIENDLY):
+        validate_text(text)
+
+
+@pytest.mark.parametrize("text", ["https://example.com", "<br>"])
+def test_pipeline_url_and_html_only(nlp, text):
+    with pytest.raises(EmptyAfterPreprocessError, match=FRIENDLY):
+        nlp.analyze(text)
+
+
+def test_valid_arabic_letters_still_pass():
+    assert has_linguistic_content("الخدمة ممتازة")
+    assert validate_text("الخدمة ممتازة") == "الخدمة ممتازة"
+
+
+def test_valid_english_letters_still_pass():
+    assert has_linguistic_content("I loved it")
+    assert validate_text("I loved it") == "I loved it"
 
 
 def test_corrupted_weights(tmp_path, monkeypatch):

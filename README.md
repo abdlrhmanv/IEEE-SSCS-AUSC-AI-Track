@@ -33,18 +33,19 @@ This repository is a **learning portfolio**, not a single application. It follow
 ## Repository structure
 
 ```text
-IEEE-SSCS-AUSC-AI-Tasks/
+IEEE-SSCS-AUSC-AI-Track/
 ├── assets/ieee-logo.jpeg
 ├── Machine-Learning/
 │   ├── Tasks/Task0 … Task10
 │   ├── Project1/          # stub → team Uber price-prediction repo
 │   └── Project2/          # stub → Smart Home voice-control repo
 └── NLP/
-    ├── Task0/
     └── Week1/
+        ├── Task0/         # vector rotation notebook
+        └── Project1/      # Neurova NLP
 ```
 
-Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/README.md`](NLP/README.md)
+Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/README.md`](NLP/README.md) · [Neurova NLP](NLP/Week1/Project1)
 
 ---
 
@@ -72,8 +73,8 @@ Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/REA
 
 | Item | Description | Status |
 | :--- | :---------- | :----: |
-| [Task 0](NLP/Task0) | Vector rotation notebook | In progress |
-| [Week 1](NLP/Week1) | Lecture notebooks + Neurova Project 1 | In progress |
+| [Task 0](NLP/Week1/Task0) | Vector rotation notebook | In progress |
+| [Week 1](NLP/Week1) | Lecture notebooks + [Neurova Project 1](NLP/Week1/Project1) | In progress |
 
 ---
 
@@ -82,14 +83,17 @@ Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/REA
 There is **no** root `requirements.txt`. Each task or project has its own dependencies.
 
 ```bash
-git clone git@github.com:abdlrhmanv/IEEE-SSCS-AUSC-AI-Tasks.git
-cd IEEE-SSCS-AUSC-AI-Tasks
+git clone https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track.git
+cd IEEE-SSCS-AUSC-AI-Track
 
 python3 -m venv .venv
 source .venv/bin/activate
 
 # Example: Task 10
 pip install -r Machine-Learning/Tasks/Task10/requirements.txt
+
+# Neurova NLP
+# cd NLP/Week1/Project1 && pip install -r requirements.txt && streamlit run app.py
 ```
 
 Task 0 (ML) uses only the Python standard library.

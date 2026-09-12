@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import pytest
 from streamlit.testing.v1 import AppTest
 
 APP = Path(__file__).resolve().parents[1] / "app.py"
@@ -56,6 +57,22 @@ def test_empty_analyze_warns():
     _analyze(at)
     assert at.warning
     assert "empty" in str(at.warning[0].value).lower()
+    assert not at.exception
+
+
+@pytest.mark.parametrize(
+    "text",
+    ["https://example.com", "<br>", "؟؟؟", "١٢٣", "َُِ"],
+)
+def test_non_linguistic_inputs_warn_in_ui(text):
+    at = _app()
+    at.text_area[0].input(text).run()
+    _analyze(at)
+    assert not at.exception, at.exception
+    assert at.warning
+    assert "meaningful" in str(at.warning[0].value).lower()
+    values = [m.value for m in at.markdown]
+    assert not any("**Language:**" in v for v in values)
 
 
 def test_every_demo_button_fills_and_classifies():

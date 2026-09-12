@@ -3,7 +3,11 @@
 import streamlit as st
 
 from src.pipeline import NeurovaNLPPipeline
-from src.validation import EmptyTextError, NonLinguisticTextError
+from src.validation import (
+    EmptyAfterPreprocessError,
+    EmptyTextError,
+    NonLinguisticTextError,
+)
 
 st.set_page_config(page_title="Neurova NLP", page_icon="💬", layout="centered")
 
@@ -67,7 +71,12 @@ for col, (label, sample) in zip(demo_cols, DEMOS.items()):
 if clicked:
     try:
         result = nlp.analyze(st.session_state.draft)
-    except (EmptyTextError, NonLinguisticTextError, TypeError) as exc:
+    except (
+        EmptyTextError,
+        NonLinguisticTextError,
+        EmptyAfterPreprocessError,
+        TypeError,
+    ) as exc:
         st.warning(str(exc))
     else:
         st.divider()

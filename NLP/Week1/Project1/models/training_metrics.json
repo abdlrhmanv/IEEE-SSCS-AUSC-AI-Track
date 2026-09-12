@@ -1,27 +1,51 @@
 {
   "language": {
     "scores": {
-      "Accuracy": 0.9996121024049651,
-      "Precision": 0.9996122241742991,
-      "Recall": 0.9996121024049651,
-      "F1": 0.9996121023813297
+      "Accuracy": 0.9996386499963865,
+      "Precision": 0.999638743941615,
+      "Recall": 0.9996386499963865,
+      "F1": 0.9996386499794007
     },
     "confusion_matrix": [
       [
-        14177,
+        13835,
         2
       ],
       [
-        9,
-        14170
+        8,
+        13829
       ]
     ],
     "labels": [
       "Arabic",
       "English"
     ],
-    "n_train": 113996,
-    "n_test": 28358,
+    "n_train": 110948,
+    "n_test": 27674,
+    "overlap": {
+      "n_train": 110948,
+      "n_test": 27674,
+      "n_source_overlap": 0,
+      "n_normalized_overlap": 3321,
+      "n_test_unseen_normalized": 19292,
+      "n_test_seen_normalized": 8382,
+      "unseen_class_balance": {
+        "Arabic": 10447,
+        "English": 8845
+      },
+      "test_class_balance": {
+        "English": 13837,
+        "Arabic": 13837
+      },
+      "n_duplicate_sources_merged": 625
+    },
+    "unseen_normalized_scores": {
+      "Accuracy": 0.9998963300850093,
+      "Precision": 0.9998869673335594,
+      "Recall": 0.9999042787403083,
+      "F1": 0.9998956120663014
+    },
+    "unseen_normalized_n": 19292,
     "checks": {
       "hello": {
         "pipeline": "English",
@@ -127,20 +151,20 @@
   },
   "english": {
     "scores": {
-      "Accuracy": 0.9010238907849829,
-      "Precision": 0.8978537360890302,
-      "Recall": 0.9054108216432866,
-      "F1": 0.9016164438235881
+      "Accuracy": 0.8996185504918691,
+      "Precision": 0.8962639109697933,
+      "Recall": 0.9041700080192462,
+      "F1": 0.9001996007984032
     },
-    "macro_f1": 0.9010203002798005,
+    "macro_f1": 0.899615147733612,
     "confusion_matrix": [
       [
-        2229,
-        257
+        2226,
+        261
       ],
       [
-        236,
-        2259
+        239,
+        2255
       ]
     ],
     "labels": [
@@ -150,83 +174,83 @@
     "winner": {
       "Model": "Linear SVM",
       "Features": "TF-IDF unigram + bigram",
-      "Accuracy": 0.8928481806775408,
-      "Precision": 0.8874074074074074,
-      "Recall": 0.9003006012024048,
-      "F1": 0.89380751056951
+      "Accuracy": 0.9076305220883534,
+      "Precision": 0.9065467266366817,
+      "Recall": 0.9092731829573935,
+      "F1": 0.9079079079079079
     },
     "val_results": [
       {
         "Model": "Linear SVM",
         "Features": "TF-IDF unigram + bigram",
-        "Accuracy": 0.8928481806775408,
-        "Precision": 0.8874074074074074,
-        "Recall": 0.9003006012024048,
-        "F1": 0.89380751056951
-      },
-      {
-        "Model": "Linear SVM",
-        "Features": "TF-IDF unigram",
-        "Accuracy": 0.888582183186951,
-        "Precision": 0.87890625,
-        "Recall": 0.9018036072144289,
-        "F1": 0.8902077151335311
+        "Accuracy": 0.9076305220883534,
+        "Precision": 0.9065467266366817,
+        "Recall": 0.9092731829573935,
+        "F1": 0.9079079079079079
       },
       {
         "Model": "Logistic Regression",
         "Features": "TF-IDF unigram + bigram",
-        "Accuracy": 0.8875784190715182,
-        "Precision": 0.8805309734513275,
-        "Recall": 0.8972945891783567,
-        "F1": 0.888833746898263
+        "Accuracy": 0.8938253012048193,
+        "Precision": 0.8864306784660767,
+        "Recall": 0.9037593984962407,
+        "F1": 0.8950111690245719
       },
       {
-        "Model": "Logistic Regression",
+        "Model": "Linear SVM",
         "Features": "TF-IDF unigram",
-        "Accuracy": 0.880552070263488,
-        "Precision": 0.8700097370983447,
-        "Recall": 0.8952905811623246,
-        "F1": 0.8824691358024691
+        "Accuracy": 0.8910642570281124,
+        "Precision": 0.8869608329201785,
+        "Recall": 0.8967418546365915,
+        "F1": 0.8918245264207378
       },
       {
         "Model": "Logistic Regression",
         "Features": "Bag of Words",
-        "Accuracy": 0.8772898368883313,
-        "Precision": 0.8706345302508608,
-        "Recall": 0.8867735470941884,
-        "F1": 0.8786299329858526
+        "Accuracy": 0.8870481927710844,
+        "Precision": 0.8872180451127819,
+        "Recall": 0.8872180451127819,
+        "F1": 0.8872180451127819
+      },
+      {
+        "Model": "Logistic Regression",
+        "Features": "TF-IDF unigram",
+        "Accuracy": 0.884789156626506,
+        "Precision": 0.8794466403162056,
+        "Recall": 0.8922305764411027,
+        "F1": 0.8857924856929584
       },
       {
         "Model": "Naive Bayes",
         "Features": "TF-IDF unigram + bigram",
-        "Accuracy": 0.8780426599749059,
-        "Precision": 0.8778778778778779,
-        "Recall": 0.8787575150300602,
-        "F1": 0.8783174762143214
+        "Accuracy": 0.8722389558232931,
+        "Precision": 0.8771573604060914,
+        "Recall": 0.8661654135338346,
+        "F1": 0.8716267339218159
       },
       {
         "Model": "Linear SVM",
         "Features": "Bag of Words",
-        "Accuracy": 0.8619824341279799,
-        "Precision": 0.8582755203171457,
-        "Recall": 0.8677354709418837,
-        "F1": 0.8629795714997509
+        "Accuracy": 0.867218875502008,
+        "Precision": 0.8672344689378757,
+        "Recall": 0.8676691729323308,
+        "F1": 0.8674517664745678
       },
       {
         "Model": "Naive Bayes",
         "Features": "TF-IDF unigram",
-        "Accuracy": 0.8572145545796738,
-        "Precision": 0.8721961398017736,
-        "Recall": 0.8376753507014028,
-        "F1": 0.8545872731919244
+        "Accuracy": 0.8544176706827309,
+        "Precision": 0.8793565683646113,
+        "Recall": 0.8220551378446115,
+        "F1": 0.8497409326424871
       },
       {
         "Model": "Naive Bayes",
         "Features": "Bag of Words",
-        "Accuracy": 0.835633626097867,
-        "Precision": 0.8591322978039636,
-        "Recall": 0.8036072144288577,
-        "F1": 0.8304426611441884
+        "Accuracy": 0.8270582329317269,
+        "Precision": 0.8568306010928962,
+        "Recall": 0.7859649122807018,
+        "F1": 0.8198692810457516
       }
     ],
     "checks": {
@@ -240,63 +264,77 @@
       "The service was terrible": "Negative",
       "The movie wasn't bad.": "Negative"
     },
-    "classification_report": "              precision    recall  f1-score   support\n\n    Negative     0.9043    0.8966    0.9004      2486\n    Positive     0.8979    0.9054    0.9016      2495\n\n    accuracy                         0.9010      4981\n   macro avg     0.9011    0.9010    0.9010      4981\nweighted avg     0.9011    0.9010    0.9010      4981\n"
+    "classification_report": "              precision    recall  f1-score   support\n\n    Negative     0.9030    0.8951    0.8990      2487\n    Positive     0.8963    0.9042    0.9002      2494\n\n    accuracy                         0.8996      4981\n   macro avg     0.8997    0.8996    0.8996      4981\nweighted avg     0.8996    0.8996    0.8996      4981\n",
+    "prep_stats": {
+      "n_raw": 25000,
+      "n_empty_normalized_dropped": 0,
+      "n_conflict_groups": 0,
+      "n_conflict_rows_dropped": 0,
+      "n_same_label_dups_dropped": 99,
+      "n_unique": 24901
+    },
+    "split_overlap": {
+      "fit_val": 0,
+      "fit_test": 0,
+      "val_test": 0,
+      "train_test": 0
+    }
   },
   "arabic": {
     "scores": {
-      "Accuracy": 0.8129656254084433,
-      "Precision": 0.619375523053507,
-      "Recall": 0.630434908543512,
-      "F1": 0.6239573725636033
+      "Accuracy": 0.7786874061945696,
+      "Precision": 0.6208890005172529,
+      "Recall": 0.6536355100000337,
+      "F1": 0.6220621766733281
     },
     "per_class": {
       "Negative": {
-        "precision": 0.7983453981385729,
-        "recall": 0.8385228095582911,
-        "f1-score": 0.8179410206604273,
-        "support": 2762.0
+        "precision": 0.8132780082987552,
+        "recall": 0.7932303164091243,
+        "f1-score": 0.803129074315515,
+        "support": 2718.0
       },
       "Neutral": {
-        "precision": 0.16812227074235808,
-        "recall": 0.2047872340425532,
-        "f1-score": 0.18465227817745802,
-        "support": 376.0
+        "precision": 0.1522491349480969,
+        "recall": 0.3626373626373626,
+        "f1-score": 0.21445978878960195,
+        "support": 364.0
       },
       "Positive": {
-        "precision": 0.8916589002795899,
-        "recall": 0.847994682029692,
-        "f1-score": 0.8692788188529245,
-        "support": 4513.0
+        "precision": 0.8971398583049068,
+        "recall": 0.8050388509536143,
+        "f1-score": 0.8485976669148673,
+        "support": 4247.0
       },
-      "accuracy": 0.8129656254084433,
+      "accuracy": 0.7786874061945696,
       "macro avg": {
-        "precision": 0.619375523053507,
-        "recall": 0.630434908543512,
-        "f1-score": 0.6239573725636033,
-        "support": 7651.0
+        "precision": 0.6208890005172529,
+        "recall": 0.6536355100000337,
+        "f1-score": 0.6220621766733281,
+        "support": 7329.0
       },
       "weighted avg": {
-        "precision": 0.8224154464017324,
-        "recall": 0.8129656254084433,
-        "f1-score": 0.8171007273744703,
-        "support": 7651.0
+        "precision": 0.8290437017189335,
+        "recall": 0.7786874061945696,
+        "f1-score": 0.8002404800786499,
+        "support": 7329.0
       }
     },
     "confusion_matrix": [
       [
-        2316,
-        122,
-        324
+        2156,
+        286,
+        276
       ],
       [
-        158,
-        77,
-        141
+        116,
+        132,
+        116
       ],
       [
-        427,
-        259,
-        3827
+        379,
+        449,
+        3419
       ]
     ],
     "labels": [
@@ -306,108 +344,108 @@
     ],
     "winner": {
       "Model": "Logistic Regression",
-      "Features": "Word + char n-grams",
-      "Accuracy": 0.8289495180526057,
-      "Precision": 0.6421120617220838,
-      "Recall": 0.6476778582397036,
-      "F1": 0.6446904059026036
+      "Features": "Character n-grams",
+      "Accuracy": 0.7854340781170049,
+      "Precision": 0.6309739606966017,
+      "Recall": 0.6700611839171039,
+      "F1": 0.6329711694270528
     },
     "val_results": [
       {
         "Model": "Logistic Regression",
-        "Features": "Word + char n-grams",
-        "Accuracy": 0.8289495180526057,
-        "Precision": 0.6421120617220838,
-        "Recall": 0.6476778582397036,
-        "F1": 0.6446904059026036
-      },
-      {
-        "Model": "Logistic Regression",
         "Features": "Character n-grams",
-        "Accuracy": 0.7934977944780265,
-        "Precision": 0.6358740910333146,
-        "Recall": 0.6815287125437482,
-        "F1": 0.6428412183299749
+        "Accuracy": 0.7854340781170049,
+        "Precision": 0.6309739606966017,
+        "Recall": 0.6700611839171039,
+        "F1": 0.6329711694270528
       },
       {
         "Model": "Logistic Regression",
-        "Features": "Word n-grams",
-        "Accuracy": 0.8180035941839569,
-        "Precision": 0.6312776054287045,
-        "Recall": 0.6320446643746366,
-        "F1": 0.6316062367344905
+        "Features": "Word + char n-grams",
+        "Accuracy": 0.8157939621354255,
+        "Precision": 0.623153113308212,
+        "Recall": 0.6263410792481916,
+        "F1": 0.6245546105618561
       },
       {
         "Model": "Naive Bayes",
         "Features": "Word + char n-grams",
-        "Accuracy": 0.7913739585035126,
-        "Precision": 0.6232389166512499,
-        "Recall": 0.6571543155034774,
-        "F1": 0.6311276326141894
+        "Accuracy": 0.7886747398942521,
+        "Precision": 0.6192276633119956,
+        "Recall": 0.6461277510440502,
+        "F1": 0.6245246231606567
       },
       {
         "Model": "Logistic Regression",
         "Features": "Word TF-IDF",
-        "Accuracy": 0.7913739585035126,
-        "Precision": 0.6263413821797904,
-        "Recall": 0.6552817065446774,
-        "F1": 0.6302076158659085
+        "Accuracy": 0.7823639774859287,
+        "Precision": 0.615480659664167,
+        "Recall": 0.6390241247022491,
+        "F1": 0.6182590417400798
       },
       {
-        "Model": "Linear SVM",
+        "Model": "Naive Bayes",
         "Features": "Character n-grams",
-        "Accuracy": 0.8000326743996079,
-        "Precision": 0.6228689681151821,
-        "Recall": 0.6443175306890753,
-        "F1": 0.6282314785108666
+        "Accuracy": 0.762578884530104,
+        "Precision": 0.6219019553616616,
+        "Recall": 0.6622033798366358,
+        "F1": 0.617273198915033
+      },
+      {
+        "Model": "Logistic Regression",
+        "Features": "Word n-grams",
+        "Accuracy": 0.8055602933651714,
+        "Precision": 0.613866771506542,
+        "Recall": 0.6192956446785232,
+        "F1": 0.6163327485236006
       },
       {
         "Model": "Naive Bayes",
         "Features": "Word TF-IDF",
-        "Accuracy": 0.7858193105701683,
-        "Precision": 0.6334634204367698,
-        "Recall": 0.6534256967739627,
-        "F1": 0.6263674214015096
+        "Accuracy": 0.7711069418386491,
+        "Precision": 0.6221444926906406,
+        "Recall": 0.642744286579234,
+        "F1": 0.6141320609835034
       },
       {
-        "Model": "Naive Bayes",
+        "Model": "Linear SVM",
         "Features": "Character n-grams",
-        "Accuracy": 0.7665414148015031,
-        "Precision": 0.6237354691199501,
-        "Recall": 0.6722270034344252,
-        "F1": 0.6226998683927315
+        "Accuracy": 0.7844107112399795,
+        "Precision": 0.6036766006022064,
+        "Recall": 0.6155612849672569,
+        "F1": 0.6052948681928069
       },
       {
         "Model": "Naive Bayes",
         "Features": "Word n-grams",
-        "Accuracy": 0.8279692860643686,
-        "Precision": 0.6385042753995365,
-        "Recall": 0.6122909357879303,
-        "F1": 0.6217826753582748
+        "Accuracy": 0.8166467678662801,
+        "Precision": 0.6173289897617568,
+        "Recall": 0.5975600873418431,
+        "F1": 0.6043425190516084
       },
       {
         "Model": "Linear SVM",
         "Features": "Word TF-IDF",
-        "Accuracy": 0.7988890704133311,
-        "Precision": 0.6169381917057112,
-        "Recall": 0.624175978126163,
-        "F1": 0.6174935840153174
+        "Accuracy": 0.7845812723861504,
+        "Precision": 0.5985428533866569,
+        "Recall": 0.6024295073004767,
+        "F1": 0.5986651618783713
+      },
+      {
+        "Model": "Linear SVM",
+        "Features": "Word n-grams",
+        "Accuracy": 0.8110182500426403,
+        "Precision": 0.6046342969226622,
+        "Recall": 0.5859985456824306,
+        "F1": 0.5893159655385708
       },
       {
         "Model": "Linear SVM",
         "Features": "Word + char n-grams",
-        "Accuracy": 0.8269890540761313,
-        "Precision": 0.6280378038004186,
-        "Recall": 0.6076110688543288,
-        "F1": 0.6116429983249048
-      },
-      {
-        "Model": "Linear SVM",
-        "Features": "Word n-grams",
-        "Accuracy": 0.822904754125143,
-        "Precision": 0.6119961934133956,
-        "Recall": 0.591545638926029,
-        "F1": 0.5946978581801735
+        "Accuracy": 0.8130649837966911,
+        "Precision": 0.6029263353978669,
+        "Recall": 0.5871211996849044,
+        "F1": 0.5886773686893015
       }
     ],
     "checks": {
@@ -418,9 +456,23 @@
       "الفيلم سيء جدا": "Negative",
       "الخدمة كانت سيئة": "Negative",
       "الخدمة سيئة للغاية": "Negative",
-      "المنتج لا يستحق المال": "Negative",
+      "المنتج لا يستحق المال": "Positive",
       "الفيلم مش وحش": "Negative"
     },
-    "classification_report": "              precision    recall  f1-score   support\n\n    Negative     0.7983    0.8385    0.8179      2762\n     Neutral     0.1681    0.2048    0.1847       376\n    Positive     0.8917    0.8480    0.8693      4513\n\n    accuracy                         0.8130      7651\n   macro avg     0.6194    0.6304    0.6240      7651\nweighted avg     0.8224    0.8130    0.8171      7651\n"
+    "classification_report": "              precision    recall  f1-score   support\n\n    Negative     0.8133    0.7932    0.8031      2718\n     Neutral     0.1522    0.3626    0.2145       364\n    Positive     0.8971    0.8050    0.8486      4247\n\n    accuracy                         0.7787      7329\n   macro avg     0.6209    0.6536    0.6221      7329\nweighted avg     0.8290    0.7787    0.8002      7329\n",
+    "prep_stats": {
+      "n_raw": 40045,
+      "n_empty_normalized_dropped": 704,
+      "n_conflict_groups": 180,
+      "n_conflict_rows_dropped": 978,
+      "n_same_label_dups_dropped": 1720,
+      "n_unique": 36643
+    },
+    "split_overlap": {
+      "fit_val": 0,
+      "fit_test": 0,
+      "val_test": 0,
+      "train_test": 0
+    }
   }
 }

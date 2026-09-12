@@ -18,7 +18,7 @@ from sklearn.svm import LinearSVC
 
 from .labels import ARABIC, ENGLISH
 from .Preprocessing_pipeline import preprocess_language_detection
-from .validation import load_weights
+from .validation import EmptyAfterPreprocessError, load_weights
 
 _LATIN_RUN_RE = re.compile(r"[A-Za-z]+")
 _ARABIC_RUN_RE = re.compile(r"[\u0600-\u06FF]+")
@@ -225,7 +225,7 @@ class LanguageClassifier:
         """
         cleaned = preprocess_language_detection(text)
         if not cleaned:
-            raise ValueError(
-                "No alphabetic content after language preprocessing."
+            raise EmptyAfterPreprocessError(
+                "Please enter meaningful Arabic or English text."
             )
         return str(self.pipeline.predict([cleaned])[0])

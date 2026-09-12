@@ -70,6 +70,7 @@ jobs:
         run: |
           python - <<'PY'
           from src.pipeline import NeurovaNLPPipeline
+          from src.validation import EmptyAfterPreprocessError, NonLinguisticTextError
           nlp = NeurovaNLPPipeline.load()
           en = nlp.analyze("I absolutely loved this movie.")
           ar = nlp.analyze("الخدمة سيئة جدا ولن أكرر التجربة")
@@ -77,6 +78,19 @@ jobs:
           assert set(en) == keys and set(ar) == keys
           assert en["Language"] == "English" and en["Sentiment Classification"] == "Positive"
           assert ar["Language"] == "Arabic" and ar["Sentiment Classification"] == "Negative"
+          for bad, exc in (
+              ("https://example.com", EmptyAfterPreprocessError),
+              ("<br>", EmptyAfterPreprocessError),
+              ("؟؟؟", NonLinguisticTextError),
+              ("١٢٣", NonLinguisticTextError),
+              ("َُِ", NonLinguisticTextError),
+          ):
+              try:
+                  nlp.analyze(bad)
+              except exc:
+                  pass
+              else:
+                  raise AssertionError(bad)
           print(en)
           print(ar)
           PY

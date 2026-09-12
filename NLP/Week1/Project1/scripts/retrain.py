@@ -25,7 +25,6 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
 )
-from sklearn.model_selection import train_test_split
 from sklearn.utils import resample
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -59,6 +58,7 @@ from src.Preprocessing_pipeline import (
     preprocess_english,
     preprocess_language_detection,
 )
+from src.sentiment_dataset import resolve_normalized_labels, split_unique_normalized
 
 MODELS = ROOT / "models"
 METRICS_PATH = MODELS / "training_metrics.json"
@@ -90,11 +90,10 @@ def train_language():
     print("=== LANGUAGE ===")
     en = pd.read_csv(ROOT / "data/raw/english/MovieReviewTrainingDatabase.csv")["review"]
     ar = pd.read_csv(ROOT / "data/raw/arabic/Final_Data.csv")["review_description"]
-    train_df, test_df = build_language_splits(en, ar)
+    train_df, test_df, overlap_stats = build_language_splits(en, ar)
     print("train", train_df["language"].value_counts().to_dict())
     print("test", test_df["language"].value_counts().to_dict())
-    overlap = set(train_df["source_id"]) & set(test_df["source_id"])
-    print("source_id overlap", len(overlap))
+    print("overlap", overlap_stats)
 
     X_train, y_train = train_df["clean_text"], train_df["language"]
     X_test, y_test = test_df["clean_text"], test_df["language"]
@@ -106,6 +105,13 @@ def train_language():
     scores = _macro_scores(y_test, y_pred)
     cm = confusion_matrix(y_test, y_pred, labels=labels).tolist()
     print("test", scores, "cm", cm)
+
+    unseen = test_df[~test_df["clean_text"].isin(set(train_df["clean_text"]))]
+    unseen_pred = pipe.predict(unseen["clean_text"]) if len(unseen) else []
+    unseen_scores = _macro_scores(unseen["language"], unseen_pred) if len(unseen) else {}
+    print("unseen-normalized test", len(unseen), unseen_scores)
+    if len(unseen):
+        print(_report(unseen["language"], unseen_pred, labels))
 
     clf = LanguageClassifier(pipe)
     path = clf.save(MODELS / "Language_classifier_weights.pkl")
@@ -153,6 +159,9 @@ def train_language():
         "labels": labels,
         "n_train": int(len(X_train)),
         "n_test": int(len(X_test)),
+        "overlap": overlap_stats,
+        "unseen_normalized_scores": unseen_scores,
+        "unseen_normalized_n": int(len(unseen)),
         "checks": pred_map,
     }
 
@@ -160,23 +169,19 @@ def train_language():
 def train_english():
     print("=== ENGLISH ===")
     df = pd.read_csv(ROOT / "data/raw/english/MovieReviewTrainingDatabase.csv")
-    df = df.drop_duplicates(subset=["review"]).copy()
     df["label"] = df["sentiment"].map(lambda x: map_sentiment(x, ENGLISH))
-    df["clean_text"] = df["review"].map(preprocess_english)
-    df = df[df["clean_text"].str.len() > 0]
+    df, prep_stats = resolve_normalized_labels(
+        df, text_col="review", label_col="label", preprocess=preprocess_english
+    )
+    print("prep", prep_stats)
     print(df["label"].value_counts().to_dict())
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        df["clean_text"],
-        df["label"],
-        test_size=0.2,
-        random_state=42,
-        stratify=df["label"],
-    )
-    X_fit, X_val, y_fit, y_val = train_test_split(
-        X_train, y_train, test_size=0.2, random_state=42, stratify=y_train
-    )
-    print("train", len(X_train), "val", len(X_val), "test", len(X_test))
+    fit, val, trainval, test, overlap = split_unique_normalized(df)
+    X_fit, y_fit = fit["clean_text"], fit["label"]
+    X_val, y_val = val["clean_text"], val["label"]
+    X_train, y_train = trainval["clean_text"], trainval["label"]
+    X_test, y_test = test["clean_text"], test["label"]
+    print("train", len(X_train), "val", len(X_val), "test", len(X_test), "overlap", overlap)
 
     labels = [NEGATIVE, POSITIVE]
     baseline = build_english_baseline()
@@ -237,6 +242,8 @@ def train_english():
         "val_results": val_results.to_dict(orient="records"),
         "checks": pred_map,
         "classification_report": _report(y_test, y_pred, labels),
+        "prep_stats": prep_stats,
+        "split_overlap": overlap,
     }
 
 
@@ -263,27 +270,23 @@ def _oversample_neutral(X, y, random_state=42):
 def train_arabic():
     print("=== ARABIC ===")
     df = pd.read_csv(ROOT / "data/raw/arabic/Final_Data.csv")
-    df = df.dropna(subset=["review_description"]).copy()
     df["label"] = df["rating"].map(lambda x: map_sentiment(x, ARABIC))
-    conflict = df.groupby("review_description")["label"].nunique().loc[lambda s: s > 1].index
-    df = df[~df["review_description"].isin(conflict)]
-    df = df.drop_duplicates(subset=["review_description"])
-    df["clean_text"] = df["review_description"].map(preprocess_arabic)
-    df = df[df["clean_text"].str.len() > 0]
+    df, prep_stats = resolve_normalized_labels(
+        df,
+        text_col="review_description",
+        label_col="label",
+        preprocess=preprocess_arabic,
+    )
+    print("prep", prep_stats)
     print(df["label"].value_counts().to_dict())
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        df["clean_text"],
-        df["label"],
-        test_size=0.2,
-        random_state=42,
-        stratify=df["label"],
-    )
-    X_fit, X_val, y_fit, y_val = train_test_split(
-        X_train, y_train, test_size=0.2, random_state=42, stratify=y_train
-    )
+    fit, val, trainval, test, overlap = split_unique_normalized(df)
+    X_fit, y_fit = fit["clean_text"], fit["label"]
+    X_val, y_val = val["clean_text"], val["label"]
+    X_train, y_train = trainval["clean_text"], trainval["label"]
+    X_test, y_test = test["clean_text"], test["label"]
     X_fit_os, y_fit_os = _oversample_neutral(X_fit, y_fit)
-    print("fit", len(X_fit), "fit_os", len(X_fit_os), "val", len(X_val), "test", len(X_test))
+    print("fit", len(X_fit), "fit_os", len(X_fit_os), "val", len(X_val), "test", len(X_test), "overlap", overlap)
 
     labels = [NEGATIVE, NEUTRAL, POSITIVE]
     baseline = build_arabic_baseline()
@@ -348,6 +351,8 @@ def train_arabic():
         "val_results": val_results.to_dict(orient="records"),
         "checks": pred_map,
         "classification_report": _report(y_test, y_pred, labels),
+        "prep_stats": prep_stats,
+        "split_overlap": overlap,
     }
 
 

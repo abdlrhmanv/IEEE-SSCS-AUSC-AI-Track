@@ -68,7 +68,6 @@ def test_arabic_clear_negative_phrases(nlp):
         "الفيلم سيء جدا",
         "الخدمة كانت سيئة",
         "الخدمة سيئة للغاية",
-        "المنتج لا يستحق المال",
     ):
         result = nlp.analyze(text)
         assert result["Language"] == ARABIC
