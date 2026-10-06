@@ -1,8 +1,8 @@
-# IEEE SSCS AUSC — Task 2: Pandas — Titanic EDA
+# Task 2 — Titanic exploratory analysis
 
-**Location:** `Machine-Learning/Tasks/Task2/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
-## 📋 Overview
+## Overview
 
 This task for the **IEEE SSCS AUSC AI Team** focuses on **Pandas** and exploratory data analysis. Using the classic Titanic dataset, we walk through the full data-analysis pipeline:
 
@@ -12,9 +12,11 @@ This task for the **IEEE SSCS AUSC AI Team** focuses on **Pandas** and explorato
 4. **Analysis & Insights** — Ask and answer four focused questions with code, plots, and written interpretations.
 5. **Conclusion** — Summarize key findings, limitations, and potential next steps.
 
----
+<a id="project-structure"></a>
 
-## 📂 Project Structure
+## Contents
+
+Folder guides: [Python Code](<Python Code/README.md>) · [Written Report](<Written Report/README.md>).
 
 ```text
 Task2/
@@ -29,9 +31,21 @@ Task2/
 └── requirements.txt
 ```
 
----
+<a id="how-to-run"></a>
 
-## 🔍 Notebook Walkthrough
+## Run locally
+
+```bash
+# From the repository root, with your environment activated
+cd Machine-Learning/Tasks/Task2/"Python Code"
+python -m pip install -r ../requirements.txt
+python -m jupyter notebook task.ipynb
+# Run all cells top to bottom
+```
+
+<a id="notebook-walkthrough"></a>
+
+## Workflow
 
 ### Step 1 — Load the Data
 
@@ -69,30 +83,16 @@ Also includes a Gender × Class cross-tabulation showing women in 1st/2nd class 
 
 Key takeaways: gender and class were the dominant survival factors, consistent with the "women and children first" policy. Limitations include simple median imputation for Age and dropping the Cabin column.
 
----
-
-## ▶️ How to Run
-
-```bash
-# From the repository root, with your environment activated
-cd Machine-Learning/Tasks/Task2/"Python Code"
-python -m pip install -r ../requirements.txt
-python -m jupyter notebook task.ipynb
-# Run all cells top to bottom
-```
-
----
-
-## 🛠️ Requirements
+## Requirements
 
 Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
----
+<a id="course-materials"></a>
 
-## 👤 Author
-
-**Abdlrhman** — IEEE SSCS AUSC, AI Team
-
-## Course materials
+## Resources
 
 Assignment and reference resources: [Task 2 materials](../../../course-materials/Machine-Learning/Task2). See the [course-materials index](../../../course-materials/README.md) for all weeks.
+
+## Author
+
+**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC AI Team

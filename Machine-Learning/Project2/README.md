@@ -1,10 +1,23 @@
-# Smart Home Voice Control
+# Smart Home — Voice control
+
+[Portfolio](../../README.md) · [Machine Learning](../README.md)
+
+## Overview
 
 **Team project · Machine Learning · Python / Whisper / SVM / Streamlit / Arduino**
 
 Control light and music with spoken commands, verify a spoken password and enrolled speaker, and read temperature through an Arduino serial connection.
 
-[Team repository](https://github.com/abdlrhmanv/smart-home-voice-control) · [Application core](https://github.com/abdlrhmanv/smart-home-voice-control/tree/main/core) · [Back to portfolio](../../README.md)
+[Team repository](https://github.com/abdlrhmanv/smart-home-voice-control) · [Application core](https://github.com/abdlrhmanv/smart-home-voice-control/tree/main/core)
+
+## At a glance
+
+| Item | Detail |
+| :--- | :--- |
+| Ownership | Team project; individual contribution documented below |
+| My role | Architecture and integration |
+| Interface | Streamlit dashboard with Arduino control |
+| Demo scope | Dashboard preview; hardware actions need a connected board |
 
 ## My contribution
 
@@ -35,11 +48,15 @@ After following [the setup below](#run-the-team-application):
 
 For an interface preview without Arduino, set `ALLOW_OFFLINE_CONTROL=1` before starting. That setting does not simulate physical actions. A recorded hardware demonstration is not included in this portfolio yet.
 
-## Current result and limitation
+<a id="current-result-and-limitation"></a>
+
+## Results
 
 The team documents command macro-F1 around **0.98 on a random split**, but **around 0.11 in leave-one-speaker-out evaluation**. Those results measure different settings: the project demonstrates control with enrolled speakers, while generalization to unseen speakers remains weak. See the [team evaluation and limitations](https://github.com/abdlrhmanv/smart-home-voice-control/blob/main/README.md#known-limitations).
 
-## Run the team application
+<a id="run-the-team-application"></a>
+
+## Run locally
 
 The source, saved models, firmware, and tests live in the team repository.
 

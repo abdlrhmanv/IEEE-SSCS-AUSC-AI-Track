@@ -1,0 +1,22 @@
+# Course materials — Week1
+
+[Portfolio](../../../README.md) · [NLP](../README.md)
+
+## Overview
+
+Assignment briefs, lecture examples, and reference resources from the IEEE SSCS AUSC AI track. These materials retain their source rights and are separate from personal solution code.
+
+## Contents
+
+| Resource | Description |
+| :--- | :--- |
+| [lecture-code](lecture-code/README.md) | Folder guide |
+| [neurova-assignment.pdf](neurova-assignment.pdf) | PDF document |
+
+## Usage
+
+Read the references above. The corresponding [solution notes](../../../NLP/Week1/README.md) describe personal implementation work.
+
+## Notes
+
+Course references and lecture code are excluded from the MIT grant for original portfolio code; see [source attribution](../../../THIRD_PARTY_NOTICES.md).

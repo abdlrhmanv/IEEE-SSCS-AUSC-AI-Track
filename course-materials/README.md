@@ -1,8 +1,16 @@
 # Course materials
 
+[Portfolio](../README.md)
+
+## Overview
+
 Assignment briefs, study plans, lecture examples, and reference exports from the IEEE SSCS AUSC AI track. My solution code, datasets, results, and written reports remain under [Machine Learning](../Machine-Learning/README.md) and [NLP](../NLP/README.md).
 
-## Index
+<a id="index"></a>
+
+## Contents
+
+Folder guides: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) · [Shared references](shared/README.md).
 
 | Area | Resources |
 | :--- | :--- |
@@ -20,7 +28,9 @@ Assignment briefs, study plans, lecture examples, and reference exports from the
 | NLP/Week1/lecture-code | [Test_text.txt](NLP/Week1/lecture-code/Test_text.txt) · [Week_1_NLP_part1.ipynb](NLP/Week1/lecture-code/Week_1_NLP_part1.ipynb) · [Week_1_NLP_part2.ipynb](NLP/Week1/lecture-code/Week_1_NLP_part2.ipynb) · [channel.py](NLP/Week1/lecture-code/channel.py) · [text_classification_project.ipynb](NLP/Week1/lecture-code/text_classification_project.ipynb) |
 | shared | [ml-nlp-session.pdf](shared/ml-nlp-session.pdf) |
 
-## Organization notes
+<a id="organization-notes"></a>
+
+## Notes
 
 - The shared ML/NLP session PDF is stored once under `shared/` and linked from both learning phases.
 - Task 5 reference images have date-based names matching their original export dates.

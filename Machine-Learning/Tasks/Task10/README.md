@@ -1,18 +1,21 @@
-# Task 10 — Classification (Large Task + Research)
+# Task 10 — Decision trees, SVM and random forest
 
-**Location:** `Machine-Learning/Tasks/Task10/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
-IEEE SSCS AUSC · AI Sub-Team  
-**Author:** Abdlrhman Hisham Ismail (AI2617)
+## Overview
+
+IEEE SSCS AUSC · AI Sub-Team
 
 Large classification project covering Decision Trees, SVMs (linear & RBF), Random Forest with Optuna, and a research report on SVM kernels.
 
-**Shared dataset:** [Red Wine Quality (Kaggle / UCI)](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)  
+**Shared dataset:** [Red Wine Quality (Kaggle / UCI)](https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009)
 Binary label: **good** if `quality >= 6`.
 
----
+<a id="folder-structure"></a>
 
-## Folder Structure
+## Contents
+
+Folder guides: [Task 0 - Decision Tree](<Task 0 - Decision Tree/README.md>) · [Task 1 - SVM linear](<Task 1 - SVM linear/README.md>) · [Task 2 - SVM RBF](<Task 2 - SVM RBF/README.md>) · [Task 3 - Randomforest](<Task 3 - Randomforest/README.md>) · [Task 4 - Research](<Task 4 - Research/README.md>) · [data](data/README.md).
 
 Part of the main course repo: `IEEE-SSCS-AUSC-AI-Track`.
 
@@ -53,9 +56,27 @@ Task10/
 └── requirements.txt
 ```
 
----
+<a id="how-to-run"></a>
 
-## Task Overview
+## Run locally
+
+```bash
+# From the repository root, with your environment activated
+cd Machine-Learning/Tasks/Task10
+python -m pip install -r requirements.txt
+
+# Choose one notebook; its kernel working directory must be its own child folder
+python -m jupyter notebook "Task 0 - Decision Tree/decision_tree.ipynb"
+python -m jupyter notebook "Task 1 - SVM linear/svm_linear.ipynb"
+python -m jupyter notebook "Task 2 - SVM RBF/svm_rbf.ipynb"
+python -m jupyter notebook "Task 3 - Randomforest/random_forest_optuna.ipynb"
+```
+
+For example, `decision_tree.ipynb` must run with its kernel directory set to `Task 0 - Decision Tree/`, so the first cell can import the parent `data_utils.py`. Jupyter normally starts kernels in the notebook folder; configure the same directory when using an editor.
+
+<a id="task-overview"></a>
+
+## Workflow
 
 | Folder | Deliverable |
 | :----- | :---------- |
@@ -65,9 +86,9 @@ Task10/
 | **Task 3 — Randomforest** | Optuna search for best RF hyperparameter **combination** |
 | **Task 4 — Research** | **5-page** report on types of kernels in SVM |
 
----
+<a id="key-results-executed"></a>
 
-## Key Results (executed)
+## Results
 
 ### Decision Tree
 - Best test F1 near shallow depths (~0.75 at depth 3); train F1 rises with depth (overfitting trend).
@@ -87,30 +108,12 @@ Task10/
 ### Research
 - `Task 4 - Research/SVM_Kernels_Report.pdf` — **5 pages** (linear, polynomial, RBF, sigmoid, comparison & references)
 
----
-
-## How to Run
-
-```bash
-# From the repository root, with your environment activated
-cd Machine-Learning/Tasks/Task10
-python -m pip install -r requirements.txt
-
-# Choose one notebook; its kernel working directory must be its own child folder
-python -m jupyter notebook "Task 0 - Decision Tree/decision_tree.ipynb"
-python -m jupyter notebook "Task 1 - SVM linear/svm_linear.ipynb"
-python -m jupyter notebook "Task 2 - SVM RBF/svm_rbf.ipynb"
-python -m jupyter notebook "Task 3 - Randomforest/random_forest_optuna.ipynb"
-```
-
-For example, `decision_tree.ipynb` must run with its kernel directory set to `Task 0 - Decision Tree/`, so the first cell can import the parent `data_utils.py`. Jupyter normally starts kernels in the notebook folder; configure the same directory when using an editor.
-
----
-
 ## Requirements
 
 Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
----
-
 > **AI Assistance Note:** Notebook explanations and the research report draft were prepared with AI assistance, then reviewed for this submission.
+
+## Author
+
+**Abdlrhman Hisham Ismail (AI2617)** — IEEE SSCS AUSC AI Team

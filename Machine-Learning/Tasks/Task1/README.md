@@ -1,8 +1,8 @@
-# IEEE SSCS AUSC — Task 1: NumPy Assignment
+# Task 1 — NumPy and linear regression
 
-**Location:** `Machine-Learning/Tasks/Task1/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
-## 📋 Overview
+## Overview
 
 This task for the **IEEE SSCS AUSC AI Team** focuses on **NumPy**. It consists of three parts:
 
@@ -10,9 +10,11 @@ This task for the **IEEE SSCS AUSC AI Team** focuses on **NumPy**. It consists o
 2. **Linear Regression from Scratch** — Implementing the **Normal Equation** (θ = (XᵀX)⁻¹Xᵀy) with NumPy to predict house prices.
 3. **Research** — A written research document in PDF format.
 
----
+<a id="project-structure"></a>
 
-## 📂 Project Structure
+## Contents
+
+Folder guides: [NumPy Assignment](<NumPy Assignment/README.md>).
 
 ```text
 Task1/
@@ -28,9 +30,29 @@ Task1/
 └── requirements.txt
 ```
 
----
+## Run locally
 
-## 🧮 Part 1 — Core NumPy Operations
+### Core NumPy Operations
+
+```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
+cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Core NumPy Operations"
+python main.py
+```
+
+### Linear Regression (Normal Equation)
+
+```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
+cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Linear Regression from Scratch (Normal Equation)"
+python main.py
+```
+
+## Workflow
+
+### Part 1 — Core NumPy Operations
 
 NumPy-based operations on a grades matrix (students × subjects):
 
@@ -44,18 +66,7 @@ NumPy-based operations on a grades matrix (students × subjects):
 | Min–Max normalization | Per-column normalize to [0, 1] |
 | Flatten | `.flatten()` |
 
-### ▶️ How to Run
-
-```bash
-# From the repository root, with your environment activated
-python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
-cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Core NumPy Operations"
-python main.py
-```
-
----
-
-## 📈 Part 2 — Linear Regression (Normal Equation)
+### Part 2 — Linear Regression (Normal Equation)
 
 Predict house price from size (square meters) using the closed-form solution:
 
@@ -63,18 +74,7 @@ Predict house price from size (square meters) using the closed-form solution:
 - Compute **θ** = (XᵀX)⁻¹Xᵀy with `np.linalg.inv` and matrix multiplication.
 - Predict price for a new house size (e.g. 90 m²).
 
-### ▶️ How to Run
-
-```bash
-# From the repository root, with your environment activated
-python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
-cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Linear Regression from Scratch (Normal Equation)"
-python main.py
-```
-
----
-
-## 📝 Part 3 — Research
+### Part 3 — Research
 
 Research document:
 
@@ -82,18 +82,16 @@ Research document:
 | -------- | -------- |
 | **The Normal Equation, and Handling Multicollinearity.pdf** | `NumPy Assignment/Research/` |
 
----
+## Requirements
 
-## 🛠️ Requirements
+Install the packages in [requirements.txt](requirements.txt). Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
-Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
+<a id="course-materials"></a>
 
----
-
-## 👤 Author
-
-**Abdlrhman** — IEEE SSCS AUSC, AI Team
-
-## Course materials
+## Resources
 
 Assignment and reference resources: [Task 1 materials](../../../course-materials/Machine-Learning/Task1). See the [course-materials index](../../../course-materials/README.md) for all weeks.
+
+## Author
+
+**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC AI Team

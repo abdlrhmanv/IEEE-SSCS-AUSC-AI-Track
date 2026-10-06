@@ -1,17 +1,19 @@
-# IEEE SSCS AUSC — Task 0: Initial Task (AI Team)
+# Task 0 — Matrix operations
 
-**Location:** `Machine-Learning/Tasks/Task0/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
-## 📋 Overview
+## Overview
 
 This is the initial task for the **IEEE SSCS AUSC AI Team**. It consists of two parts:
 
 1. **Matrix Operations** — Implementing fundamental linear algebra operations from scratch in Python (no NumPy).
 2. **Research Papers** — Written research pieces on the **Trapezoidal Rule** (numerical integration) and **Matrix Normalization in AI**.
 
----
+<a id="project-structure"></a>
 
-## 📂 Project Structure
+## Contents
+
+Folder guides: [Hello IEEE](<Hello IEEE/README.md>).
 
 ```
 Task0/
@@ -30,9 +32,18 @@ Task0/
 └── README.md
 ```
 
----
+## Run locally
 
-## 🧮 Part 1 — Matrix Operations
+### Matrix Operations
+
+```bash
+cd Machine-Learning/Tasks/Task0/"Hello IEEE/Code"
+python3 main.py
+```
+
+## Workflow
+
+### Part 1 — Matrix Operations
 
 Pure-Python implementations of core matrix operations **without external libraries**.
 
@@ -45,14 +56,16 @@ Pure-Python implementations of core matrix operations **without external librari
 | `scalarsub.py` | `scalarsub(s, A)` | Subtract scalar `s` from every element of matrix `A`     |
 | `matnorm.py`   | `matnorm(A)`      | Compute the Frobenius norm of matrix `A`                 |
 
-### ▶️ How to Run
+### Part 2 — Research Papers
 
-```bash
-cd Machine-Learning/Tasks/Task0/"Hello IEEE/Code"
-python3 main.py
-```
+Two research documents included in `Hello IEEE/Research/`:
 
-### Example Output
+| Paper                              | Topic                                                |
+| :--------------------------------- | :--------------------------------------------------- |
+| **Trapezoid Rule.pdf**             | The Trapezoidal Rule for numerical integration       |
+| **Matrix Normalization in AI.pdf** | Matrix normalization techniques and their role in AI |
+
+## Results
 
 ```
 ==================================================
@@ -81,29 +94,16 @@ Matrix Norm:
 ==================================================
 ```
 
----
-
-## 📝 Part 2 — Research Papers
-
-Two research documents included in `Hello IEEE/Research/`:
-
-| Paper                              | Topic                                                |
-| :--------------------------------- | :--------------------------------------------------- |
-| **Trapezoid Rule.pdf**             | The Trapezoidal Rule for numerical integration       |
-| **Matrix Normalization in AI.pdf** | Matrix normalization techniques and their role in AI |
-
----
-
-## 🛠️ Requirements
+## Requirements
 
 - **Python 3.x** (standard library only — no external dependencies)
 
----
+<a id="course-materials"></a>
 
-## 👤 Author
-
-**Abdlrhman** — IEEE SSCS AUSC, AI Team
-
-## Course materials
+## Resources
 
 Assignment and reference resources: [Task 0 materials](../../../course-materials/Machine-Learning/Task0). See the [course-materials index](../../../course-materials/README.md) for all weeks.
+
+## Author
+
+**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC AI Team

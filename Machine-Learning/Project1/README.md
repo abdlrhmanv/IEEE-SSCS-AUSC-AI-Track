@@ -1,10 +1,23 @@
-# FareCast — Uber Fare Prediction
+# FareCast — Uber fare prediction
+
+[Portfolio](../../README.md) · [Machine Learning](../README.md)
+
+## Overview
 
 **Team project · Machine Learning · Python / scikit-learn / Streamlit**
 
 Estimate a ride's fare from pickup/dropoff coordinates, passenger count, and engineered time and distance features. The team application combines regression models with a map-based interface and trip history.
 
-[Team repository](https://github.com/AliMohamed3122005/UberPricePredictionProject) · [Model implementation](https://github.com/AliMohamed3122005/UberPricePredictionProject/tree/main/Model) · [Back to portfolio](../../README.md)
+[Team repository](https://github.com/AliMohamed3122005/UberPricePredictionProject) · [Model implementation](https://github.com/AliMohamed3122005/UberPricePredictionProject/tree/main/Model)
+
+## At a glance
+
+| Item | Detail |
+| :--- | :--- |
+| Ownership | Team project; individual contribution documented below |
+| My role | Regression models and preprocessing |
+| Interface | Streamlit fare planner |
+| Demo scope | Local Models preview; artifact and map fixes needed |
 
 ## My contribution
 
@@ -34,11 +47,15 @@ After following [the setup below](#run-the-team-application):
 
 The published ngrok demo was **offline on 6 October 2026**. During local preview, the CARTO map tiles returned an API-key-required notice, and the default Gradient Boosting artifact failed to load in the Python 3.13 / scikit-learn 1.9 environment. Its recorded training version is scikit-learn 1.8.0. The team needs to verify artifact compatibility and configure a working tile provider before a full prediction demo. The screenshot above is a limited interface preview.
 
-## Current result and limitation
+<a id="current-result-and-limitation"></a>
+
+## Results
 
 The repository contains the model implementations and an interactive fare-planning application. The current [team README](https://github.com/AliMohamed3122005/UberPricePredictionProject/blob/main/README.md) reports a scaling issue in the loaded model artifact. Fare estimates should be revalidated after that issue is resolved; this portfolio does not claim a verified fare-error metric.
 
-## Run the team application
+<a id="run-the-team-application"></a>
+
+## Run locally
 
 The application source lives in the team repository. This folder contains the portfolio write-up. The [original assignment brief](../../course-materials/Machine-Learning/Project1/assignment.pdf) is archived with the course materials.
 

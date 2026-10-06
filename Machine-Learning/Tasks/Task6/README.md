@@ -1,6 +1,6 @@
-# IEEE SSCS AUSC — Task 6: Polynomial Regression
+# Task 6 — Polynomial regression
 
-**Location:** `Machine-Learning/Tasks/Task6/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
 ## Overview
 
@@ -15,9 +15,11 @@ Implemented workflow:
 
 > **AI Assistance Note:** Some notebook markdown explanations and documentation comments were generated with AI assistance, then reviewed in the final workflow.
 
----
+<a id="project-structure"></a>
 
-## Project Structure
+## Contents
+
+Folder guides: [Written Report](<Written Report/README.md>).
 
 ```text
 Task6/
@@ -29,35 +31,9 @@ Task6/
 └── task.ipynb
 ```
 
----
+<a id="how-to-run"></a>
 
-## Notebook Workflow
-
-1. **Load & explore** Auto MPG (missing horsepower, MPG distribution, feature–target plots)
-2. **Split** 70% train / 15% validation / 15% test
-3. Fit **linear baseline**; report all five metrics
-4. Fit **polynomial models** (deg 2–5); plot train vs validation RMSE & R²
-5. Tune **Ridge / Lasso** at the best degree with cross-validated `alpha`
-6. Build a **test-set comparison table** across all models
-7. **Residual analysis** for the best model
-8. Write **insights** + optional synthetic quadratic experiment
-
----
-
-## Key Results (executed notebook)
-
-| Model | Test RMSE | Test R² |
-| :---- | --------: | ------: |
-| Lasso (deg 2) | **2.73** | **0.849** |
-| Ridge (deg 2) | 2.77 | 0.845 |
-| Poly deg 2 | 2.82 | 0.839 |
-| Linear baseline | 3.02 | 0.816 |
-
-Best unregularized degree by validation RMSE: **2**. Degrees 4–5 overfit severely.
-
----
-
-## How to Run
+## Run locally
 
 ```bash
 # From the repository root, with your environment activated
@@ -69,18 +45,42 @@ python -m jupyter notebook task.ipynb
 
 Requires network access only if `auto-mpg.data` is missing (notebook falls back to the UCI URL).
 
----
+<a id="notebook-workflow"></a>
+
+## Workflow
+
+1. **Load & explore** Auto MPG (missing horsepower, MPG distribution, feature–target plots)
+2. **Split** 70% train / 15% validation / 15% test
+3. Fit **linear baseline**; report all five metrics
+4. Fit **polynomial models** (deg 2–5); plot train vs validation RMSE & R²
+5. Tune **Ridge / Lasso** at the best degree with cross-validated `alpha`
+6. Build a **test-set comparison table** across all models
+7. **Residual analysis** for the best model
+8. Write **insights** + optional synthetic quadratic experiment
+
+<a id="key-results-executed-notebook"></a>
+
+## Results
+
+| Model | Test RMSE | Test R² |
+| :---- | --------: | ------: |
+| Lasso (deg 2) | **2.73** | **0.849** |
+| Ridge (deg 2) | 2.77 | 0.845 |
+| Poly deg 2 | 2.82 | 0.839 |
+| Linear baseline | 3.02 | 0.816 |
+
+Best unregularized degree by validation RMSE: **2**. Degrees 4–5 overfit severely.
 
 ## Requirements
 
 Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
----
+<a id="course-materials"></a>
+
+## Resources
+
+Assignment and reference resources: [Task 6 materials](../../../course-materials/Machine-Learning/Task6). See the [course-materials index](../../../course-materials/README.md) for all weeks.
 
 ## Author
 
-**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC, AI Team
-
-## Course materials
-
-Assignment and reference resources: [Task 6 materials](../../../course-materials/Machine-Learning/Task6). See the [course-materials index](../../../course-materials/README.md) for all weeks.
+**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC AI Team
