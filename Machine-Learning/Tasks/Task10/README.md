@@ -14,32 +14,43 @@ Binary label: **good** if `quality >= 6`.
 
 ## Folder Structure
 
-Part of the main course repo: `IEEE-SSCS-AUSC-AI-Tasks`.
+Part of the main course repo: `IEEE-SSCS-AUSC-AI-Track`.
 
-```
+```text
 Task10/
 ├── data/
+│   ├── heart.csv
 │   └── winequality-red.csv
-├── data_utils.py
-├── requirements.txt
-├── README.md
 ├── Task 0 - Decision Tree/
-│   ├── decision_tree.ipynb      # F1 vs max_depth (3…25), train & test graphs
 │   ├── plots/
+│   │   ├── test_f1_vs_max_depth.png
+│   │   └── train_f1_vs_max_depth.png
+│   ├── decision_tree.ipynb
 │   └── results_f1_vs_depth.csv
 ├── Task 1 - SVM linear/
-│   ├── svm_linear.ipynb
-│   └── plots/
-├── Task 2 - SVM RBF/
-│   ├── svm_rbf.ipynb
-│   └── plots/
-├── Task 3 - Randomforest/
-│   ├── random_forest_optuna.ipynb
 │   ├── plots/
-│   └── results/
-└── Task 4 - Research/
-    ├── SVM_Kernels_Report.pdf   # 5-page research report
-    └── SVM_Kernels_Report.html
+│   │   └── svm_linear_confusion.png
+│   ├── results_svm_linear.csv
+│   └── svm_linear.ipynb
+├── Task 2 - SVM RBF/
+│   ├── plots/
+│   │   └── svm_rbf_confusion.png
+│   ├── results_svm_rbf.csv
+│   └── svm_rbf.ipynb
+├── Task 3 - Randomforest/
+│   ├── plots/
+│   │   ├── optuna_rf_history_importance.png
+│   │   └── rf_confusion.png
+│   ├── results/
+│   │   ├── best_rf_params.csv
+│   │   └── optuna_trials.csv
+│   └── random_forest_optuna.ipynb
+├── Task 4 - Research/
+│   └── SVM_Kernels_Report.pdf
+├── .gitignore
+├── data_utils.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -81,27 +92,24 @@ Task10/
 ## How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task10
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
-# Open any notebook and Run All (cwd = that task folder)
-jupyter notebook "Task 0 - Decision Tree/decision_tree.ipynb"
-jupyter notebook "Task 1 - SVM linear/svm_linear.ipynb"
-jupyter notebook "Task 2 - SVM RBF/svm_rbf.ipynb"
-jupyter notebook "Task 3 - Randomforest/random_forest_optuna.ipynb"
+# Choose one notebook; its kernel working directory must be its own child folder
+python -m jupyter notebook "Task 0 - Decision Tree/decision_tree.ipynb"
+python -m jupyter notebook "Task 1 - SVM linear/svm_linear.ipynb"
+python -m jupyter notebook "Task 2 - SVM RBF/svm_rbf.ipynb"
+python -m jupyter notebook "Task 3 - Randomforest/random_forest_optuna.ipynb"
 ```
+
+For example, `decision_tree.ipynb` must run with its kernel directory set to `Task 0 - Decision Tree/`, so the first cell can import the parent `data_utils.py`. Jupyter normally starts kernels in the notebook folder; configure the same directory when using an editor.
 
 ---
 
 ## Requirements
 
-```
-numpy
-pandas
-matplotlib
-scikit-learn
-optuna
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Use the [coursework setup guide](../../../docs/running-coursework.md) to create an environment first.
 
 ---
 

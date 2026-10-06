@@ -6,7 +6,7 @@
 
 This task for the **IEEE SSCS AUSC AI Team** focuses on **data visualization** using **Matplotlib** and **Seaborn**. The goal is to build meaningful charts, explore patterns across real datasets, and communicate insights clearly.
 
-Datasets used (via `seaborn`):
+Datasets used (via `seaborn.load_dataset`; network access is needed on the first run unless cached):
 - **Iris** — sepal & petal measurements across 3 species
 - **Tips** — restaurant bill & tip data
 - **Flights** — monthly passenger counts (1949–1960)
@@ -15,15 +15,15 @@ Datasets used (via `seaborn`):
 
 ## 📂 Project Structure
 
-```
+```text
 Task3/
 ├── Python Code/
-│   └── task.ipynb                                      # Main notebook (Steps 1–6 + insights)
+│   └── task.ipynb
 ├── Written Report/
 │   └── Data Visualization Report using Matplotlib and Seaborn.pdf
-├── Data_Visualization_Matplotlib_Seaborn.ipynb         # Additional notebook (practice/extra)
-├── Visualization_Task_IEEE_SSCS.pdf                    # Task description
-└── Visualization_Study_Plan_IEEE_SSCS.pdf              # Study plan
+├── Data_Visualization_Matplotlib_Seaborn.ipynb
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -42,8 +42,10 @@ Task3/
 ## ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task3/"Python Code"
-jupyter notebook task.ipynb
+python -m pip install -r ../requirements.txt
+python -m jupyter notebook task.ipynb
 # Run all cells top to bottom
 ```
 
@@ -51,17 +53,7 @@ jupyter notebook task.ipynb
 
 ## 🛠️ Requirements
 
-- **Python 3.x**
-- **NumPy**
-- **Pandas**
-- **Matplotlib**
-- **Seaborn**
-
-Example install:
-
-```bash
-pip install numpy pandas matplotlib seaborn
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Use the [coursework setup guide](../../../docs/running-coursework.md) to create an environment first.
 
 ---
 
@@ -69,3 +61,7 @@ pip install numpy pandas matplotlib seaborn
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
 
+
+## Course materials
+
+Assignment and reference resources: [Task 3 materials](../../../course-materials/Machine-Learning/Task3). See the [course-materials index](../../../course-materials/README.md) for all weeks.

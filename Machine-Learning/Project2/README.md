@@ -1,35 +1,55 @@
-# Project 2 — Smart Home Voice Control
+# Smart Home Voice Control
 
-**Phase:** Machine Learning  
-**Type:** Standalone production-style repository
+**Team project · Machine Learning · Python / Whisper / SVM / Streamlit / Arduino**
 
-Source is **not** copied into this portfolio. The canonical project is:
+Control light and music with spoken commands, verify a spoken password and enrolled speaker, and read temperature through an Arduino serial connection.
 
-**https://github.com/abdlrhmanv/smart-home-voice-control**
+[Team repository](https://github.com/abdlrhmanv/smart-home-voice-control) · [Application core](https://github.com/abdlrhmanv/smart-home-voice-control/tree/main/core) · [Back to portfolio](../../README.md)
 
-## What this folder contains
+## My contribution
 
-A short pointer only. Clone the standalone repo for code, models, Arduino firmware, tests, and CI.
+**Abdlrhman Ismail — application architecture, integration, and reliability improvements.** My recorded contributions include:
 
-## What the project is
+- Separated Streamlit screens from application use-cases and infrastructure adapters; introduced injectable interfaces for serial control, session state, audio, and music.
+- Consolidated the command/action mapping, added confidence-based rejection checks and WAV-upload validation, and expanded service/serial tests and CI coverage checks.
+- Added a Whisper phrase-match override to correct live command misclassification while retaining speaker identification and rejection checks.
+- Fixed light/music command mapping and hardened temperature reads to handle unrelated serial output and Arduino reset/re-authentication behavior.
 
-Voice-controlled smart home:
+Evidence: [architecture, tests, and service integration](https://github.com/abdlrhmanv/smart-home-voice-control/commit/a637ef250c5e32d5059609629bbdc64835b4e882) · [live command recognition](https://github.com/abdlrhmanv/smart-home-voice-control/commit/628f40dd9f55e6520ab0ebb7f94a48b01e5a0d5b) · [command mapping and temperature fixes](https://github.com/abdlrhmanv/smart-home-voice-control/commit/8884c6bfebdf78ed7a3e10af840340b793036c17).
 
-- Whisper STT password gate (`open`)
-- Speaker identification (SVM)
-- Command classification (light / music on-off)
-- Arduino serial actuation + temperature readout
-- Streamlit UI
+This is a team project: firmware, dataset collection, and application changes also include teammates' work. The links above identify my specific changes.
 
-## Run it from the standalone repo
+## Demo walkthrough
+
+![Smart Home dashboard with locked access and devices off](../../assets/projects/smart-home-dashboard.jpg)
+
+Actual local dashboard, captured on **6 October 2026**, with the dark theme and hardware disconnected. The screenshot shows the interface; physical device control and speech recognition were not exercised during this portfolio update. The app's Online badge does not establish an Arduino connection.
+
+After following [the setup below](#run-the-team-application):
+
+1. Open the landing page to inspect the workflow and access/device status.
+2. For the hardware demo, flash the team's current firmware, connect the Arduino, and configure the serial port in **Settings**.
+3. Open **Password** and say `open` with an enrolled voice, or upload a suitable WAV recording.
+4. Open **Voice Control** and issue `light on`, `light off`, `music on`, or `music off`; show the matching physical action.
+5. Open **Devices** for temperature readout, then **Activity Log** to review recognized commands.
+
+For an interface preview without Arduino, set `ALLOW_OFFLINE_CONTROL=1` before starting. That setting does not simulate physical actions. A recorded hardware demonstration is not included in this portfolio yet.
+
+## Current result and limitation
+
+The team documents command macro-F1 around **0.98 on a random split**, but **around 0.11 in leave-one-speaker-out evaluation**. Those results measure different settings: the project demonstrates control with enrolled speakers, while generalization to unseen speakers remains weak. See the [team evaluation and limitations](https://github.com/abdlrhmanv/smart-home-voice-control/blob/main/README.md#known-limitations).
+
+## Run the team application
+
+The source, saved models, firmware, and tests live in the team repository.
 
 ```bash
-git clone git@github.com:abdlrhmanv/smart-home-voice-control.git
+git clone https://github.com/abdlrhmanv/smart-home-voice-control.git
 cd smart-home-voice-control
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
+python -m pip install -r requirements.txt
+python -m streamlit run app.py --theme.base dark
 ```
 
-See that repository’s README for hardware pins, serial protocol, and training scripts.
+For Windows, activate with `.venv\Scripts\activate`. Follow the team repository's current firmware and serial configuration; its latest settings take precedence over older course schematics.

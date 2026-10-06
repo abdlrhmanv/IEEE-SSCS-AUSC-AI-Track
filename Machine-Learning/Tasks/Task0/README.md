@@ -27,7 +27,6 @@ Task0/
 │   └── Research/
 │       ├── Trapezoid Rule.pdf            # Numerical integration research
 │       └── Matrix Normalization in AI.pdf # Matrix normalization research
-├── Task 0 - initial Task - AI Team.pdf  # Task description
 └── README.md
 ```
 
@@ -50,7 +49,7 @@ Pure-Python implementations of core matrix operations **without external librari
 
 ```bash
 cd Machine-Learning/Tasks/Task0/"Hello IEEE/Code"
-python main.py
+python3 main.py
 ```
 
 ### Example Output
@@ -104,3 +103,7 @@ Two research documents included in `Hello IEEE/Research/`:
 ## 👤 Author
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 0 materials](../../../course-materials/Machine-Learning/Task0). See the [course-materials index](../../../course-materials/README.md) for all weeks.

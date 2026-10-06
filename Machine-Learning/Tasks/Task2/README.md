@@ -16,20 +16,17 @@ This task for the **IEEE SSCS AUSC AI Team** focuses on **Pandas** and explorato
 
 ## 📂 Project Structure
 
-```
+```text
 Task2/
 ├── Python Code/
 │   ├── DataSet/
-│   │   ├── titanic.csv                    # Titanic passenger dataset (891 rows)
-│   │   └── coulms.png                     # Column reference image
-│   └── task.ipynb                         # Main Jupyter Notebook (full EDA pipeline)
-├── Slides/
-│   └── Introduction to Pandas & DataFrames...pdf  # Lecture slides
+│   │   ├── coulms.png
+│   │   └── titanic.csv
+│   └── task.ipynb
 ├── Written Report/
 │   └── Titanic Dataset – Exploratory Data Analysis.pdf
-├── Pandas_Task_IEEE_SSCS.pdf              # Task description
-├── Pandas_Study_Plan_IEEE_SSCS.pdf        # Study plan
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -77,8 +74,10 @@ Key takeaways: gender and class were the dominant survival factors, consistent w
 ## ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task2/"Python Code"
-jupyter notebook task.ipynb
+python -m pip install -r ../requirements.txt
+python -m jupyter notebook task.ipynb
 # Run all cells top to bottom
 ```
 
@@ -86,13 +85,14 @@ jupyter notebook task.ipynb
 
 ## 🛠️ Requirements
 
-- **Python 3.x**
-- **Pandas** (`pip install pandas`)
-- **NumPy** (`pip install numpy`)
-- **Matplotlib** (`pip install matplotlib`)
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Use the [coursework setup guide](../../../docs/running-coursework.md) to create an environment first.
 
 ---
 
 ## 👤 Author
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 2 materials](../../../course-materials/Machine-Learning/Task2). See the [course-materials index](../../../course-materials/README.md) for all weeks.

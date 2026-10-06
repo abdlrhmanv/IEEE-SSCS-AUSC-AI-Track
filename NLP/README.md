@@ -1,41 +1,35 @@
 # Phase 2 — Natural Language Processing
 
-Work from the **NLP team**, started after the Machine Learning phase.
-
-There is no Week 2 or Week 3 material in this repository yet. Empty week folders are not created.
+Work from the NLP phase after the Machine Learning coursework. This index covers the Week 1 implementations currently presented in the portfolio; later local drafts are not listed as completed submissions.
 
 ## Layout
 
 ```text
 NLP/
 └── Week1/
-    ├── Task0/             # Vector rotation (images + notebook)
-    ├── 1672026.pdf
-    ├── project_1_neurova_nlp.pdf
-    ├── code/              # Week 1 lecture / practice notebooks
-    └── Project1/          # Neurova NLP project (Arabic + English + language ID)
+    ├── Task0/       # Vector rotation notebook + Streamlit interface
+    └── Project1/    # Neurova: Arabic/English sentiment + language routing
 ```
 
-## Task 0
+Assignment briefs and lecture notebooks are under [Week 1 course materials](../course-materials/NLP/Week1). The [materials index](../course-materials/README.md) also links the shared ML/NLP session.
 
-Introductory NLP notebook (`task0.ipynb`) and `vector_rotation.py`, with `desert.jpg` / `forest.jpg`, in [`Week1/Task0/`](Week1/Task0).
+## Task 0 — Vector rotation
 
-## Week 1
+[Task notes and setup](Week1/Task0/README.md) cover `task0.ipynb`, `vector_rotation.py`, and the local image inputs.
 
-- `code/` — lecture notebooks and a small `channel.py` helper.
-- `Project1/` — sentiment / classification project (Arabic model, English model, language classifier, Streamlit `app.py`).
+## Project 1 — Neurova NLP
 
-### Run Project 1
+Solo project with Arabic and English sentiment models, language detection, evaluation notes, tests, and a Streamlit interface.
+
+From the repository root:
 
 ```bash
 cd NLP/Week1/Project1
 python3.13 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python -m pytest tests/ -q
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
-Saved models are in Git. Datasets are not required to run the app. Full notes: [`Project1/README.md`](Week1/Project1/README.md).
-
-Do **not** commit `.venv/`.
+Saved models are included. Datasets are not required for inference. See the [project results and demo](Week1/Project1/README.md) and [environment setup guide](../docs/running-coursework.md). Keep `.venv/` out of Git.

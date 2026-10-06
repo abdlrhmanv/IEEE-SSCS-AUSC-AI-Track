@@ -1,7 +1,7 @@
 <h1 align="center">IEEE SSCS AUSC — AI Track Portfolio</h1>
 
 <p align="center">
-  <img src="assets/ieee-logo.jpeg" alt="IEEE SSCS AUSC logo" width="140">
+  <img src="assets/ieee-logo.jpeg" alt="IEEE SSCS AUSC logo" width="90">
 </p>
 
 <p align="center">
@@ -23,7 +23,45 @@
 
 I'm **Abdlrhman Ismail**, a Senior Computer Engineering student at **Ain Shams University (ASU)** and a member of the **AI Committee** at IEEE SSCS AUSC.
 
-This repository is a **learning portfolio**, not a single application. It follows two chronological phases:
+I build Python applications that connect machine learning to usable interfaces: bilingual sentiment analysis, voice-controlled hardware, and fare prediction. This portfolio brings together my projects and the coursework behind them.
+
+[LinkedIn](https://www.linkedin.com/in/abdlrhmanv) · [Email](mailto:abdlrhmanv@icloud.com) · [GitHub](https://github.com/abdlrhmanv)
+
+## Featured projects
+
+| Project | Problem & approach | Result / scope | Explore |
+| :--- | :--- | :--- | :--- |
+| **Neurova NLP**<br>Solo developer | Detect Arabic or English and route text to a matching sentiment model. TF-IDF + classical classifiers + Streamlit. | English test accuracy **89.96%**; Arabic **macro-F1 0.6221**. Arabic Neutral remains weak. | [Project & results](NLP/Week1/Project1/README.md) · [Try locally](NLP/Week1/Project1/README.md#try-the-demo) |
+| **Smart Home Voice Control**<br>Team: architecture & integration | Turn spoken commands into light/music actions using Whisper, speaker identification, and Arduino serial control. | Authentication, command rejection, and temperature readout. Unseen-speaker performance remains weak. | [My contribution](Machine-Learning/Project2/README.md#my-contribution) · [Demo walkthrough](Machine-Learning/Project2/README.md#demo-walkthrough) · [Source](https://github.com/abdlrhmanv/smart-home-voice-control) |
+| **FareCast — Uber fare prediction**<br>Team: regression & preprocessing | Estimate fares from trip coordinates and engineered time/distance features, with a map-based Streamlit interface. | The team README reports a model-scaling issue; fare estimates need validation. | [My contribution](Machine-Learning/Project1/README.md#my-contribution) · [Demo walkthrough](Machine-Learning/Project1/README.md#demo-walkthrough) · [Source](https://github.com/AliMohamed3122005/UberPricePredictionProject) |
+
+Neurova's evaluation and limitations are documented in its project README. Smart Home and FareCast are maintained in their linked repositories.
+
+### Project previews
+
+| Neurova NLP | Smart Home | FareCast |
+| :---: | :---: | :---: |
+| [<img src="assets/projects/neurova-english.jpg" width="260" alt="Neurova classifies an English review as Positive">](NLP/Week1/Project1/README.md#try-the-demo) | [<img src="assets/projects/smart-home-dashboard.jpg" width="260" alt="Smart Home dashboard showing locked access and devices off">](Machine-Learning/Project2/README.md#demo-walkthrough) | [<img src="assets/projects/farecast-models.jpg" width="260" alt="FareCast model comparison screen showing saved artifact metrics">](Machine-Learning/Project1/README.md#demo-walkthrough) |
+| Real English inference; Arabic example in project notes. | Local dashboard preview; hardware disconnected. | Saved model metrics screen; fare validation still required. |
+
+### Quick start — Neurova
+
+```bash
+git clone https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track.git
+cd IEEE-SSCS-AUSC-AI-Track/NLP/Week1/Project1
+python3.13 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Click **English · Positive**, then **Analyze**; repeat with **Arabic · Negative**. Saved models are included, so no dataset download or retraining is needed. Installation time depends on your connection. Windows: activate with `.venv\Scripts\activate`.
+
+Demo access is local. FareCast's published tunnel was offline when checked on **6 October 2026**; use its walkthrough. Smart Home's physical actions require the team hardware setup.
+
+## Learning journey
+
+The coursework follows two chronological phases:
 
 1. **Machine Learning** — weekly tasks, then Project 1 and Project 2  
 2. **Natural Language Processing** — NLP team work after the ML phase
@@ -34,18 +72,20 @@ This repository is a **learning portfolio**, not a single application. It follow
 
 ```text
 IEEE-SSCS-AUSC-AI-Track/
-├── assets/ieee-logo.jpeg
+├── assets/                # IEEE logo + real project previews
 ├── Machine-Learning/
 │   ├── Tasks/Task0 … Task10
-│   ├── Project1/          # stub → team Uber price-prediction repo
-│   └── Project2/          # stub → Smart Home voice-control repo
+│   ├── Project1/          # FareCast contribution notes + demo walkthrough
+│   └── Project2/          # Smart Home contribution notes + demo walkthrough
+├── course-materials/      # Assignment briefs, slides, lecture examples
+├── docs/                 # Setup guide + iteration/testing log
 └── NLP/
     └── Week1/
-        ├── Task0/         # vector rotation notebook
+        ├── Task0/         # vector rotation notebook + Streamlit interface
         └── Project1/      # Neurova NLP
 ```
 
-Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/README.md`](NLP/README.md) · [Neurova NLP](NLP/Week1/Project1)
+Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) · [Course materials](course-materials/README.md) · [Setup guide](docs/running-coursework.md)
 
 ---
 
@@ -61,7 +101,7 @@ Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/REA
 | 05 | [Task 5](Machine-Learning/Tasks/Task5) | California Housing regression | Done |
 | 06 | [Task 6](Machine-Learning/Tasks/Task6) | Polynomial regression (Auto MPG) | Done |
 | 07 | [Task 7](Machine-Learning/Tasks/Task7) | Logistic regression from scratch | Done |
-| 08 | [Task 8](Machine-Learning/Tasks/Task8) | KNN / logistic hyperparameter sweeps | Done |
+| 08 | [Task 8](Machine-Learning/Tasks/Task8) | Validation tuning + categorical encoding comparison | Done |
 | 09 | [Task 9](Machine-Learning/Tasks/Task9) | Stacking + Optuna | Done |
 | 10 | [Task 10](Machine-Learning/Tasks/Task10) | DT / SVM / RF + SVM kernels report | Done |
 | P1 | [Project 1](Machine-Learning/Project1) | Uber price prediction (team repo) | Separate repo |
@@ -73,32 +113,19 @@ Details: [`Machine-Learning/README.md`](Machine-Learning/README.md) · [`NLP/REA
 
 | Item | Description | Status |
 | :--- | :---------- | :----: |
-| [Task 0](NLP/Week1/Task0) | Vector rotation notebook | In progress |
-| [Week 1](NLP/Week1) | Lecture notebooks + [Neurova Project 1](NLP/Week1/Project1) | In progress |
+| [Task 0](NLP/Week1/Task0/README.md) | Vector rotation notebook + Streamlit interface | Implemented |
+| [Neurova Project 1](NLP/Week1/Project1/README.md) | Bilingual sentiment analysis | Implemented · tested |
+| [Week 1 materials](course-materials/NLP/Week1) | Assignment brief + lecture examples | Reference |
 
 ---
 
 ## Getting started
 
-There is **no** root `requirements.txt`. Each task or project has its own dependencies.
+Tasks and projects use separate dependencies. Follow the [coursework setup guide](docs/running-coursework.md) for the correct environment, working directory, and entry point for each task. Neurova has a tested Python 3.13 quick start above.
 
-```bash
-git clone https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track.git
-cd IEEE-SSCS-AUSC-AI-Track
+ML Task 0 uses the Python standard library. Notebook requirements include Jupyter. Keep separate environments for coursework and Neurova, whose saved models use pinned package versions.
 
-python3 -m venv .venv
-source .venv/bin/activate
-
-# Example: Task 10
-pip install -r Machine-Learning/Tasks/Task10/requirements.txt
-
-# Neurova NLP
-# cd NLP/Week1/Project1 && pip install -r requirements.txt && streamlit run app.py
-```
-
-Task 0 (ML) uses only the Python standard library.
-
-Smart Home (Project 2) is **not** vendored here. Clone and install from [smart-home-voice-control](https://github.com/abdlrhmanv/smart-home-voice-control).
+FareCast and Smart Home run from their linked source repositories. Their portfolio write-ups describe installation, ownership, and demo limits.
 
 ---
 
@@ -107,6 +134,10 @@ Smart Home (Project 2) is **not** vendored here. Clone and install from [smart-h
 Some notebook markdown explanations and documentation comments were drafted with AI assistance, then reviewed for submission.
 
 ---
+
+## License and sources
+
+Original code and associated documentation are licensed under [MIT](LICENSE). Datasets, course references, images, branding, model artifacts, and linked team code retain their own rights; see [scope and attribution](THIRD_PARTY_NOTICES.md).
 
 ## Contact
 

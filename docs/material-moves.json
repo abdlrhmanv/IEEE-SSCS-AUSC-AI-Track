@@ -1,0 +1,261 @@
+[
+  {
+    "old": "Machine-Learning/Tasks/Task0/Task 0 - initial Task - AI Team.pdf",
+    "new": "course-materials/Machine-Learning/Task0/assignment.pdf",
+    "sha256": "48e41f9377b0d381a427c313e2b430578ca61656c530bf4105793177e641b99a",
+    "bytes": 285056,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task1/Level-1_Task-1.pdf",
+    "new": "course-materials/Machine-Learning/Task1/assignment.pdf",
+    "sha256": "4790afe2d18f5820d6135eb28cef63b3351b238fb0f11827ff47aa6fcddc8c95",
+    "bytes": 549513,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task1/NumPy_Learning_Guide_IEEE.pdf",
+    "new": "course-materials/Machine-Learning/Task1/numpy-learning-guide.pdf",
+    "sha256": "d0b355be7449576e120995008399787e3c932f72e6bd701b28222299c9f1a922",
+    "bytes": 189522,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task2/Pandas_Study_Plan_IEEE_SSCS.pdf",
+    "new": "course-materials/Machine-Learning/Task2/study-plan.pdf",
+    "sha256": "4719587139ca2010670a6c44a34bc2023d721770664e3945e4e92ff28c1b6fe4",
+    "bytes": 4079345,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task2/Pandas_Task_IEEE_SSCS.pdf",
+    "new": "course-materials/Machine-Learning/Task2/assignment.pdf",
+    "sha256": "7855429661c4fe93f4f68385f725abde131692b0fbd79621397f25a024fff33c",
+    "bytes": 3984875,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task2/Slides/Introduction to Pandas & DataFrames Loading & Exploring Data Accessing, Filtering & Sorting Data Adding & Removing Columns Data Cleaning Missing Values & Duplicates GroupBy, Merging & String Opera.pdf",
+    "new": "course-materials/Machine-Learning/Task2/pandas-slides.pdf",
+    "sha256": "44f2fd5547b67037144a52ec134544ac4a8f27ba59d841ccbc08ffb863eec05b",
+    "bytes": 4808221,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task3/Visualization_Study_Plan_IEEE_SSCS.pdf",
+    "new": "course-materials/Machine-Learning/Task3/study-plan.pdf",
+    "sha256": "090fe54adad4bb5bee15f86f4bc70b673e327403c5688760f93c8fc06b3c2d38",
+    "bytes": 225828,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task3/Visualization_Task_IEEE_SSCS.pdf",
+    "new": "course-materials/Machine-Learning/Task3/assignment.pdf",
+    "sha256": "8210b3d1eb4b9ca7389c3e03c8ca640c74133de37a7d3200b624ec1abe53e128",
+    "bytes": 205457,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task4/Task 1 - level 2.pdf",
+    "new": "course-materials/Machine-Learning/Task4/assignment.pdf",
+    "sha256": "0ac881fa9d9c0afae16d72696880c4c677cc668f90b7c88afdb3304f3851ca95",
+    "bytes": 226370,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Level-1_Task-5.pdf",
+    "new": "course-materials/Machine-Learning/Task5/assignment.pdf",
+    "sha256": "13bdde78c86ab60e935d316053d43ac6f06ea1412e315232766a6a39686b26de",
+    "bytes": 575150,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Machine Learning - sheet 1 - AI Team - IEEE.pdf",
+    "new": "course-materials/Machine-Learning/Task5/ml-exercise-sheet.pdf",
+    "sha256": "51312a78464def4bec976cfc5774d5ce1331026055fa8714ed6cbe1a5b608c04",
+    "bytes": 156853,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/Session5.pdf",
+    "new": "course-materials/Machine-Learning/Task5/session-slides.pdf",
+    "sha256": "9f0fbb31c1ad64abbb10bddf839a3ff643012169c9b4330cf6e82643fe72ebc9",
+    "bytes": 2178691,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task6/poly_regression_study_plan.pdf",
+    "new": "course-materials/Machine-Learning/Task6/study-plan.pdf",
+    "sha256": "241779479ca3d46a1f2de885f63d55dcd9c3a47e2012d21189a5e3a08fde6083",
+    "bytes": 280083,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task6/poly_regression_task.pdf",
+    "new": "course-materials/Machine-Learning/Task6/assignment.pdf",
+    "sha256": "af9bfcc09c4ea5b739f64c4af82a3dfd6ae2045f497ad390a686191347bf62cd",
+    "bytes": 260434,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task7/Classification_IEEE_part 1.pdf",
+    "new": "course-materials/Machine-Learning/Task7/classification-slides.pdf",
+    "sha256": "9fd62a0e058d525c425cdaafc05cb92378762970deb64f73898ccefdc5c4125f",
+    "bytes": 6802515,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task7/ML_1_IEEE_Level_1.pdf",
+    "new": "course-materials/Machine-Learning/Task7/assignment.pdf",
+    "sha256": "c78d9b78117aeb9570b6d11ac7bea2d54c2e9d673bf4d869788feeea2f6ce7ef",
+    "bytes": 515025,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task8/ML_2_IEEE_Level_1.pdf",
+    "new": "course-materials/Machine-Learning/Task8/assignment.pdf",
+    "sha256": "c9842c81a53d56604e5913f9f37eec0b3a5c043ef3974fa6b1f53f8f02aca5c0",
+    "bytes": 299977,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task9/1672026.pdf",
+    "new": "course-materials/shared/ml-nlp-session.pdf",
+    "sha256": "f13f5ca0fa890ae2bd2fc0dd5ac56c9b8330fbf94a5995dd6cfae14f739cf0e1",
+    "bytes": 14504672,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-09 at 5.44.55 PM (1).jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-09-01.jpeg",
+    "sha256": "a7dfd499fed76299d55248eb56b0612cf9766bd91c65daa17dc1e76b0df9d1ca",
+    "bytes": 308171,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-09 at 5.44.55 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-09-02.jpeg",
+    "sha256": "8e96731596cb0f8cd6fd789274b18c9fda8f7397e60630d8ccd23f9bc1f55148",
+    "bytes": 300154,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-09 at 5.44.56 PM (1).jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-09-03.jpeg",
+    "sha256": "d95be0248bfef1ac4c0cb22fdce58315a5f6136b3a0c4e6cf2cee3e032e03d3e",
+    "bytes": 305979,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-09 at 5.44.56 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-09-04.jpeg",
+    "sha256": "6134e7689d28411555e34a85ec4776796140f99869a20767b2e5ed5cc9d346ce",
+    "bytes": 288823,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-09 at 5.44.58 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-09-05.jpeg",
+    "sha256": "8cc1fd675eddece8709068bae9eb1b5256c780d8dd3251ac92103583e25a28ef",
+    "bytes": 312595,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-11 at 4.16.59 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-11-01.jpeg",
+    "sha256": "bb411479ee683be248dbb9d5f1bc5ad62c63deeb1ec83a3c241b7c97fb3e7950",
+    "bytes": 178293,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-11 at 4.17.04 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-11-02.jpeg",
+    "sha256": "663273b2e8c81189399876a1c2c5678c620970282199d3254a8c380c51df81eb",
+    "bytes": 148041,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-11 at 4.17.09 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-11-03.jpeg",
+    "sha256": "ac2031c17a035e266e703d3587a48561c2b16f8b7a05f1431bb2f820990634b8",
+    "bytes": 186159,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-11 at 4.17.15 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-11-04.jpeg",
+    "sha256": "c94f558beedf1a90fb3ce3e6d9aa8c466f29aad0f94ee72ee9469be2e63b8f14",
+    "bytes": 181808,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task5/Material/WhatsApp Image 2026-04-11 at 4.17.21 PM.jpeg",
+    "new": "course-materials/Machine-Learning/Task5/reference-2026-04-11-05.jpeg",
+    "sha256": "9be223105b33b9279b532d0b83d37ebc44cf07ac1c6de255c9223800811a6552",
+    "bytes": 186369,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Project1/ML_project_1_IEEE_AITeam.pdf",
+    "new": "course-materials/Machine-Learning/Project1/assignment.pdf",
+    "sha256": "3b433fea309012a865167df7c61bdfcdca948d7b95e948c1bbef3e17c3768005",
+    "bytes": 503666,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/1672026.pdf",
+    "new": "course-materials/shared/ml-nlp-session.pdf",
+    "sha256": "f13f5ca0fa890ae2bd2fc0dd5ac56c9b8330fbf94a5995dd6cfae14f739cf0e1",
+    "bytes": 14504672,
+    "action": "deduplicated"
+  },
+  {
+    "old": "NLP/Week1/project_1_neurova_nlp.pdf",
+    "new": "course-materials/NLP/Week1/neurova-assignment.pdf",
+    "sha256": "5ab6994af6b833484c7c4ba583c500f3a94b403092db2bd4b14a1efb24cadd26",
+    "bytes": 651255,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/code/Test_text.txt",
+    "new": "course-materials/NLP/Week1/lecture-code/Test_text.txt",
+    "sha256": "ea4929183226aa083e42d145edbd30268a227f7a3c3450c386e56f7afb477aab",
+    "bytes": 8744,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/code/Week_1_NLP_part1.ipynb",
+    "new": "course-materials/NLP/Week1/lecture-code/Week_1_NLP_part1.ipynb",
+    "sha256": "e2b24d9abf3921970aa50ed4860c9e5270df419f7999254299843b3f535fec42",
+    "bytes": 46318,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/code/Week_1_NLP_part2.ipynb",
+    "new": "course-materials/NLP/Week1/lecture-code/Week_1_NLP_part2.ipynb",
+    "sha256": "5441fa4f3b87a56aed91cb17b144bd525a31315f3055799bbab7eb460e76f546",
+    "bytes": 50236,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/code/channel.py",
+    "new": "course-materials/NLP/Week1/lecture-code/channel.py",
+    "sha256": "4a09285eee1e8e9b2825583a7f86ad7719455b79aa6cfd395d75dbc15976d0c4",
+    "bytes": 1292,
+    "action": "moved"
+  },
+  {
+    "old": "NLP/Week1/code/text_classification_project.ipynb",
+    "new": "course-materials/NLP/Week1/lecture-code/text_classification_project.ipynb",
+    "sha256": "67fc779ea809cfe9417d9c0c971fb6ee6b3dcdc307f1db7c79e26ed03b07e762",
+    "bytes": 45927,
+    "action": "moved"
+  },
+  {
+    "old": "Machine-Learning/Tasks/Task6/Python Code/task.ipynb",
+    "new": "Machine-Learning/Tasks/Task6/task.ipynb",
+    "sha256": "8526170914d36ad4c7d57b591624c0d2836c1946fac855a9f01ca161a43fa70c",
+    "bytes": 555018,
+    "action": "deduplicated"
+  }
+]
