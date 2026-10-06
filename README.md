@@ -63,7 +63,7 @@ Demo access is local. FareCast's published tunnel was offline when checked on **
 
 The coursework follows two chronological phases:
 
-1. **Machine Learning** — weekly tasks, then Project 1 and Project 2  
+1. **Machine Learning** — weekly tasks, then Project 1 and Project 2
 2. **Natural Language Processing** — NLP team work after the ML phase
 
 ---
@@ -90,6 +90,8 @@ Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) 
 
 ## Phase 1 — Machine Learning
 
+Browse the [task index](Machine-Learning/Tasks/README.md) for folder guides and individual setup instructions.
+
 |  #  | Item | Description | Status |
 | :-: | :--- | :---------- | :----: |
 | 00 | [Task 0](Machine-Learning/Tasks/Task0) | Matrix operations from scratch + research | Done |
@@ -109,6 +111,8 @@ Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) 
 ---
 
 ## Phase 2 — Natural Language Processing
+
+Browse the [Week 1 index](NLP/Week1/README.md) for the vector-rotation task and Neurova project.
 
 | Item | Description | Status |
 | :--- | :---------- | :----: |

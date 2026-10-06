@@ -1,10 +1,16 @@
-# Phase 1 — Machine Learning
+# Machine Learning — Coursework and projects
+
+[Portfolio](../README.md)
+
+## Overview
 
 This folder is the **Machine Learning** phase of the IEEE SSCS AUSC AI track: weekly tasks, then two larger projects.
 
 Tasks stay **independent submissions**. They are not one application.
 
-## Layout
+<a id="layout"></a>
+
+## Contents
 
 ```text
 Machine-Learning/
@@ -15,6 +21,8 @@ Machine-Learning/
 ```
 
 ## Tasks 0–10
+
+[Browse the task folders and setup notes](Tasks/README.md).
 
 | Task | Topic |
 | :--: | :---- |

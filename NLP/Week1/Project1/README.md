@@ -1,4 +1,8 @@
-# Project 1 — Neurova NLP
+# Neurova NLP — Bilingual sentiment analysis
+
+[Portfolio](../../../README.md) · [Week 1](../README.md)
+
+## Overview
 
 Classical NLP system that detects whether user text is **Arabic or English**, then runs the matching sentiment classifier. No Transformers and no neural networks.
 
@@ -78,7 +82,11 @@ English is **binary** (`Positive` / `Negative`). Arabic is **3-class** (`Positiv
 
 Inference does **not** need the CSVs. The three `models/*.pkl` files are tracked in Git (about 1.4–2.6 MB each, under GitHub’s 100 MB file limit). Git LFS is not used.
 
-## Repository structure
+<a id="repository-structure"></a>
+
+## Contents
+
+Folder guides: [Source](src/README.md) · [Models](models/README.md) · [Data](data/README.md) · [Notebooks](notebooks/README.md) · [Scripts](scripts/README.md) · [Tests](tests/README.md).
 
 ```text
 NLP/Week1/Project1/
@@ -125,7 +133,9 @@ Training and inference import the same functions:
 
 Arabic stopwords stay off by default so `مش حلو` does not become `حلو`.
 
-## Feature extraction and models
+<a id="feature-extraction-and-models"></a>
+
+## Results and models
 
 Classical only: Bag of Words, word TF-IDF, word n-grams, character n-grams, FeatureUnion.
 
@@ -138,6 +148,9 @@ Winner per pipeline is chosen on a **validation** split (test is held out). Lang
 | Arabic | Logistic Regression (`class_weight=balanced`) | Character n-grams (char_wb 3–5) | Accuracy **0.7787**, **macro-F1 0.6221** |
 
 Fixing train/test overlap lowered English accuracy from **0.9010 → 0.8996** and Arabic accuracy from **0.8130 → 0.7787**. Arabic macro-F1 moved **0.6240 → 0.6221**. After the leak-free split, validation selected character n-grams instead of word+char n-grams. Language accuracy stayed **0.9996** on a slightly different test size.
+
+<details>
+<summary>Evaluation details, overlap policy, and confusion matrices</summary>
 
 ### Sentiment overlap policy
 
@@ -207,6 +220,8 @@ Neutral is about 5% of the Arabic data and the labels are noisy. After class wei
 
 Neutral is still not reliable. Macro-F1 is the honest metric; accuracy overstates quality.
 
+</details>
+
 ## Installation
 
 Python **3.13** was used for the saved weights (`scikit-learn==1.9.0`). Use the pinned versions in `requirements.txt` so pickle load stays compatible.
@@ -220,11 +235,12 @@ python -m pip install -r requirements.txt
 
 If `python3.13` is not on your PATH, `python3 -m venv .venv` is fine when that interpreter is 3.13.
 
-## How to run
+<a id="how-to-run"></a>
+
+## Run locally
 
 ```bash
 python -m streamlit run app.py
-# or: python -m streamlit run app.py
 python -m pytest tests/ -q
 ```
 

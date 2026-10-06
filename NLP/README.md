@@ -1,8 +1,14 @@
-# Phase 2 — Natural Language Processing
+# Natural Language Processing — Coursework and projects
+
+[Portfolio](../README.md)
+
+## Overview
 
 Work from the NLP phase after the Machine Learning coursework. This index covers the Week 1 implementations currently presented in the portfolio; later local drafts are not listed as completed submissions.
 
-## Layout
+<a id="layout"></a>
+
+## Contents
 
 ```text
 NLP/

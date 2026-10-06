@@ -1,10 +1,10 @@
-# IEEE SSCS AUSC — Task 5: Regression (California Housing)
+# Task 5 — California Housing regression
 
-**Location:** `Machine-Learning/Tasks/Task5/`
+[Portfolio](../../../README.md) · [Tasks](../README.md)
 
-## 📋 Overview
+## Overview
 
-This task for the **IEEE SSCS AUSC AI Team** focuses on **supervised regression** using the California Housing dataset.  
+This task for the **IEEE SSCS AUSC AI Team** focuses on **supervised regression** using the California Housing dataset.
 The objective is to predict **`median_house_value`** and compare multiple linear regression implementations.
 
 Implemented models:
@@ -14,9 +14,9 @@ Implemented models:
 
 > **AI Assistance Note:** Some notebook markdown explanations and documentation comments were generated with AI assistance, then reviewed in the final workflow.
 
----
+<a id="project-structure"></a>
 
-## 📂 Project Structure
+## Contents
 
 ```text
 Task5/
@@ -26,9 +26,21 @@ Task5/
 └── task.ipynb
 ```
 
----
+<a id="how-to-run"></a>
 
-## 🔍 Notebook Workflow
+## Run locally
+
+```bash
+# From the repository root, with your environment activated
+cd Machine-Learning/Tasks/Task5
+python -m pip install -r requirements.txt
+python -m jupyter notebook task.ipynb
+# Run all cells top to bottom
+```
+
+<a id="notebook-workflow"></a>
+
+## Workflow
 
 The notebook follows the assignment requirements step-by-step:
 
@@ -43,31 +55,16 @@ The notebook follows the assignment requirements step-by-step:
 9. Compare all models on **Train / Validation / Test** using custom MSE/MAE
 10. Add markdown discussion and final comparison summary
 
----
-
-## ▶️ How to Run
-
-```bash
-# From the repository root, with your environment activated
-cd Machine-Learning/Tasks/Task5
-python -m pip install -r requirements.txt
-python -m jupyter notebook task.ipynb
-# Run all cells top to bottom
-```
-
----
-
-## 🛠️ Requirements
+## Requirements
 
 Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
----
+<a id="course-materials"></a>
 
-## 👤 Author
-
-**Abdlrhman** — IEEE SSCS AUSC, AI Team
-
-
-## Course materials
+## Resources
 
 Assignment and reference resources: [Task 5 materials](../../../course-materials/Machine-Learning/Task5). See the [course-materials index](../../../course-materials/README.md) for all weeks.
+
+## Author
+
+**Abdlrhman Hisham Ismail** — IEEE SSCS AUSC AI Team
