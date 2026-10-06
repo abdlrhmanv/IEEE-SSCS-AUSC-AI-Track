@@ -30,7 +30,7 @@ Machine-Learning/
 | 9 | Stacking + Optuna (`max_depth`) |
 | 10 | Decision tree, SVM, random forest + SVM kernels report |
 
-Each task has its own README and dependencies. ML Task 0 uses only the standard library; Tasks 1–10 have individual `requirements.txt` files. The [setup guide](../docs/running-coursework.md) lists exact entry points and working directories.
+Each task has its own README and dependencies. ML Task 0 uses only the standard library; Tasks 1–10 have individual `requirements.txt` files. Each task README lists its entry points and working directories; the [root setup notes](../README.md#getting-started) explain environment creation.
 
 Assignment briefs, slides, and study plans are indexed under [course-materials](../course-materials/README.md). Solution code, datasets, results, and research reports remain here.
 

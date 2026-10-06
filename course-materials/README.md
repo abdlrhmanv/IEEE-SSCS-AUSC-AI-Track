@@ -23,7 +23,7 @@ Assignment briefs, study plans, lecture examples, and reference exports from the
 ## Organization notes
 
 - The shared ML/NLP session PDF is stored once under `shared/` and linked from both learning phases.
-- Task 5 reference images have date-based names; [the move record](../docs/material-moves.json) preserves their original filenames and SHA-256 hashes.
+- Task 5 reference images have date-based names matching their original export dates.
 - `NLP/Week1/lecture-code/` keeps the lecture examples together with their original companion text file.
 - Materials retain their original contents and source context. They are learning references; personal contributions are described in the project write-ups.
 

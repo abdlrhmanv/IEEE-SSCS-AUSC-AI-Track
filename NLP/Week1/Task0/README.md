@@ -4,7 +4,7 @@ A notebook exploring vector/image transformations and a Streamlit interface for 
 
 ## Run the interface
 
-From the repository root, after creating an environment using the [setup guide](../../../docs/running-coursework.md):
+From the repository root, after creating and activating an environment using the [root setup notes](../../../README.md#getting-started):
 
 ```bash
 cd NLP/Week1/Task0

@@ -56,3 +56,6 @@ desktop.ini
 
 # Local CI proposal: current GitHub connection lacks workflow scope
 /.github/workflows/task8-evaluation.yml
+
+# Local working documentation
+/docs/

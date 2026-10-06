@@ -97,7 +97,7 @@ It also runs a **4D AND** sanity check (linearly separable) to show the same cod
 
 ## Requirements
 
-Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Use the [coursework setup guide](../../../docs/running-coursework.md) to create an environment first.
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 

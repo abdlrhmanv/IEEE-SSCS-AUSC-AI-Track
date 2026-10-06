@@ -78,14 +78,13 @@ IEEE-SSCS-AUSC-AI-Track/
 │   ├── Project1/          # FareCast contribution notes + demo walkthrough
 │   └── Project2/          # Smart Home contribution notes + demo walkthrough
 ├── course-materials/      # Assignment briefs, slides, lecture examples
-├── docs/                 # Setup guide + iteration/testing log
 └── NLP/
     └── Week1/
         ├── Task0/         # vector rotation notebook + Streamlit interface
         └── Project1/      # Neurova NLP
 ```
 
-Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) · [Course materials](course-materials/README.md) · [Setup guide](docs/running-coursework.md)
+Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) · [Course materials](course-materials/README.md)
 
 ---
 
@@ -121,7 +120,16 @@ Details: [Machine Learning](Machine-Learning/README.md) · [NLP](NLP/README.md) 
 
 ## Getting started
 
-Tasks and projects use separate dependencies. Follow the [coursework setup guide](docs/running-coursework.md) for the correct environment, working directory, and entry point for each task. Neurova has a tested Python 3.13 quick start above.
+Tasks and projects use separate dependencies. Each task README lists its installation commands, working directory, and entry point. Neurova has a tested Python 3.13 quick start above.
+
+For coursework, create and activate an environment from the repository root, then follow the chosen task’s README:
+
+```bash
+python3 -m venv .venv-coursework
+source .venv-coursework/bin/activate
+```
+
+Windows Command Prompt: activate with `.venv-coursework\Scripts\activate`.
 
 ML Task 0 uses the Python standard library. Notebook requirements include Jupyter. Keep separate environments for coursework and Neurova, whose saved models use pinned package versions.
 

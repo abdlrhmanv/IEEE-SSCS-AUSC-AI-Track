@@ -32,4 +32,4 @@ python -m pytest tests/ -q
 python -m streamlit run app.py
 ```
 
-Saved models are included. Datasets are not required for inference. See the [project results and demo](Week1/Project1/README.md) and [environment setup guide](../docs/running-coursework.md). Keep `.venv/` out of Git.
+Saved models are included. Datasets are not required for inference. See the [project results and demo](Week1/Project1/README.md). Keep `.venv/` out of Git.

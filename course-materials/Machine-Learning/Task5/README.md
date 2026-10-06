@@ -10,7 +10,7 @@
 
 ## Reference images
 
-The date-based filenames retain the original export dates. Original names and hashes are recorded in the [move manifest](../../../docs/material-moves.json).
+The date-based filenames retain the original export dates.
 
 - [reference-2026-04-09-01](<reference-2026-04-09-01.jpeg>)
 - [reference-2026-04-09-02](<reference-2026-04-09-02.jpeg>)

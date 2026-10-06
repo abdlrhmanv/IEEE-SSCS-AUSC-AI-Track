@@ -23,7 +23,7 @@ UCI source pages were checked on 6 October 2026. Their [CC BY 4.0 terms](https:/
 
 ## Course references and media
 
-- `course-materials/` holds assignment briefs, slides, study plans, and lecture examples supplied in the IEEE SSCS AUSC AI track. These are attributed to their course/source context; a redistribution license is not established here. Original names and hashes are recorded in the [move manifest](docs/material-moves.json).
+- `course-materials/` holds assignment briefs, slides, study plans, and lecture examples supplied in the IEEE SSCS AUSC AI track. These are attributed to their course/source context; a redistribution license is not established here.
 - The IEEE logo in `assets/` is chapter context and remains outside the MIT grant. This portfolio does not claim ownership of IEEE branding.
 - The `assets/projects/` screenshots show the actual Neurova, FareCast, and Smart Home interfaces. Their provenance and capture conditions are in the [screenshot notes](assets/projects/README.md); external interface assets and branding retain their respective rights.
 - `desert.jpg` and `forest.jpg` in the vector task, and other third-party reference images, have no independently verified image license recorded here.
