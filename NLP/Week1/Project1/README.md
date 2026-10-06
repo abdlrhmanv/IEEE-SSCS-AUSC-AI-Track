@@ -2,6 +2,42 @@
 
 Classical NLP system that detects whether user text is **Arabic or English**, then runs the matching sentiment classifier. No Transformers and no neural networks.
 
+## My contribution
+
+**Abdlrhman Ismail — sole developer of Neurova NLP.** I built the project end to end: Arabic/English preprocessing, language detection, sentiment training and model selection, saved inference pipelines, the Streamlit interface, and automated tests/CI.
+
+- Kept preprocessing shared between training and inference, and saved each fitted vectorizer together with its classifier.
+- Removed normalized-text overlap from sentiment train/test splits and split language source reviews before generating derived examples.
+- Added input validation and tests for routing, model artifacts, mixed text, and the Streamlit user flow.
+- Reported per-class results and failure cases, including weak Arabic Neutral predictions and negation errors.
+
+Implementation history: [initial project](https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track/commit/2fdd3cb) · [evaluation and CI](https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track/commit/2e6590e) · [validation and overlap fixes](https://github.com/abdlrhmanv/IEEE-SSCS-AUSC-AI-Track/commit/d205572).
+
+## At a glance
+
+| Item | Detail |
+| :--- | :--- |
+| Interface | Streamlit text input with Arabic and English sample buttons |
+| English result | Held-out accuracy **89.96%** |
+| Arabic result | Held-out **macro-F1 0.6221**; Neutral remains unreliable |
+| Reproducibility | Python 3.13, pinned dependencies, saved models, tests, and CI |
+
+The detailed evaluation below explains the split policy and limitations behind these results.
+
+## Try the demo
+
+Use the [installation steps](#installation), then run `python -m streamlit run app.py` from this project folder. Saved models are included; datasets are only needed for retraining.
+
+1. Click **English · Positive**, then **Analyze**. Expected: `English` / `Positive`.
+2. Click **Arabic · Negative**, then **Analyze**. Expected: `Arabic` / `Negative`.
+3. Try your own Arabic or English review. See [limitations](#limitations) for negation, mixed language, and Neutral caveats.
+
+| English sample | Arabic sample |
+| :---: | :---: |
+| ![English review classified as Positive](../../../assets/projects/neurova-english.jpg) | ![Arabic review classified as Negative](../../../assets/projects/neurova-arabic.jpg) |
+
+These screenshots show actual inference from the local application, captured on **6 October 2026**. There is currently no hosted demo linked from this portfolio.
+
 The app shows the three fields required by the assignment brief:
 
 | Field | Values |
@@ -179,7 +215,7 @@ Python **3.13** was used for the saved weights (`scikit-learn==1.9.0`). Use the 
 cd NLP/Week1/Project1
 python3.13 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 If `python3.13` is not on your PATH, `python3 -m venv .venv` is fine when that interpreter is 3.13.
@@ -187,7 +223,7 @@ If `python3.13` is not on your PATH, `python3 -m venv .venv` is fine when that i
 ## How to run
 
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 # or: python -m streamlit run app.py
 python -m pytest tests/ -q
 ```

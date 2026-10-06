@@ -19,18 +19,14 @@ Implemented workflow:
 
 ## Project Structure
 
-```
+```text
 Task6/
-├── task.ipynb                          # Main notebook (full workflow + outputs)
-├── Python Code/
-│   └── task.ipynb                      # Same notebook (submission layout)
 ├── Written Report/
-│   ├── Polynomial_Regression_Report.pdf
-│   └── report.html                     # Source used to generate the PDF
-├── auto-mpg.data                       # Local copy of UCI Auto MPG
-├── poly_regression_task.pdf            # Assignment sheet
-├── poly_regression_study_plan.pdf      # Study plan / resources
-└── README.md
+│   └── Polynomial_Regression_Report.pdf
+├── auto-mpg.data
+├── README.md
+├── requirements.txt
+└── task.ipynb
 ```
 
 ---
@@ -64,8 +60,10 @@ Best unregularized degree by validation RMSE: **2**. Degrees 4–5 overfit sever
 ## How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task6
-jupyter notebook task.ipynb
+python -m pip install -r requirements.txt
+python -m jupyter notebook task.ipynb
 # Run all cells top to bottom
 ```
 
@@ -75,15 +73,14 @@ Requires network access only if `auto-mpg.data` is missing (notebook falls back 
 
 ## Requirements
 
-- Python 3.x
-- NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
 ## Author
 
 **Abdlrhman Hisham Ismail** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 6 materials](../../../course-materials/Machine-Learning/Task6). See the [course-materials index](../../../course-materials/README.md) for all weeks.

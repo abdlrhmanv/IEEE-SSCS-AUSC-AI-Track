@@ -1,0 +1,52 @@
+{
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "pandas": "3.0.5",
+  "scikit_learn": "1.9.0",
+  "seed": 42,
+  "train_rows": 4874,
+  "validation_rows": 1625,
+  "test_rows": 1625,
+  "encoded_features": {
+    "ordinal": 22,
+    "onehot": 117
+  },
+  "selections": {
+    "ordinal": {
+      "knn": {
+        "parameter": "K",
+        "value": 2
+      },
+      "sgd": {
+        "parameter": "learning_rate",
+        "value": 0.028
+      },
+      "logreg": {
+        "parameter": "max_iter",
+        "value": 1000
+      }
+    },
+    "onehot": {
+      "knn": {
+        "parameter": "K",
+        "value": 2
+      },
+      "sgd": {
+        "parameter": "learning_rate",
+        "value": 0.001
+      },
+      "logreg": {
+        "parameter": "max_iter",
+        "value": 1000
+      }
+    }
+  },
+  "primary_encoding": "onehot",
+  "selection_metric": "validation_F1",
+  "tie_break": "smallest parameter within 1e-12 of best validation F1",
+  "test_policy": "all settings frozen before test evaluation; no test sweep",
+  "warning_policy": "count ConvergenceWarning in sweep and final CSVs",
+  "matplotlib": "3.11.1",
+  "threadpoolctl": "3.6.0",
+  "dataset_sha256": "4091b1b8eae107cf253247526907fc33d48ac7ad2cc1841b8a2737da390f4af5"
+}

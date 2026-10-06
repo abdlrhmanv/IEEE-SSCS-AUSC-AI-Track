@@ -15,22 +15,22 @@
 
 ## Project Structure
 
-```
+```text
 Task9/
-├── task.ipynb                 # Full notebook (stacking + Optuna)
-├── heart.csv                  # UCI Heart Disease (Kaggle-equivalent)
-├── winequality-red.csv        # UCI Red Wine Quality (Kaggle-equivalent)
 ├── plots/
-│   ├── stacking_comparison.png
-│   ├── stacking_confusion_matrix.png
+│   ├── dt_f1_vs_depth_wine.png
 │   ├── optuna_max_depth.png
-│   └── dt_f1_vs_depth_wine.png
+│   ├── stacking_comparison.png
+│   └── stacking_confusion_matrix.png
 ├── results/
-│   ├── stacking_comparison.csv
+│   ├── optuna_depth_test_eval.csv
 │   ├── optuna_dt_max_depth_trials.csv
-│   └── optuna_depth_test_eval.csv
+│   └── stacking_comparison.csv
+├── heart.csv
+├── README.md
 ├── requirements.txt
-└── README.md
+├── task.ipynb
+└── winequality-red.csv
 ```
 
 ---
@@ -78,9 +78,10 @@ Target: binary heart disease (`target > 0`).
 ## How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task9
-pip install -r requirements.txt
-jupyter notebook task.ipynb
+python -m pip install -r requirements.txt
+python -m jupyter notebook task.ipynb
 # Run all cells
 ```
 
@@ -88,12 +89,14 @@ jupyter notebook task.ipynb
 
 ## Requirements
 
-```bash
-pip install numpy pandas matplotlib scikit-learn optuna
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
 ## Author
 
 **Abdlrhman Hisham Ismail** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 9 materials](../../../course-materials/shared/ml-nlp-session.pdf). See the [course-materials index](../../../course-materials/README.md) for all weeks.

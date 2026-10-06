@@ -10,8 +10,8 @@ Tasks stay **independent submissions**. They are not one application.
 Machine-Learning/
 ├── Tasks/
 │   ├── Task0/ … Task10/
-├── Project1/          # portfolio stub — Uber price prediction (team repo)
-└── Project2/          # portfolio stub — Smart Home voice control (standalone repo)
+├── Project1/          # FareCast contribution notes + demo walkthrough
+└── Project2/          # Smart Home contribution notes + demo walkthrough
 ```
 
 ## Tasks 0–10
@@ -26,26 +26,22 @@ Machine-Learning/
 | 5 | California Housing regression (from scratch + sklearn) |
 | 6 | Polynomial regression (Auto MPG) |
 | 7 | Logistic regression from scratch (4D XOR) |
-| 8 | KNN / logistic hyperparameter sweeps (mushrooms) |
+| 8 | Validation tuning + ordinal/one-hot comparison (mushrooms) |
 | 9 | Stacking + Optuna (`max_depth`) |
 | 10 | Decision tree, SVM, random forest + SVM kernels report |
 
-Each task has its own README and install notes. There is **no** shared `requirements.txt` for this phase.
+Each task has its own README and dependencies. ML Task 0 uses only the standard library; Tasks 1–10 have individual `requirements.txt` files. Each task README lists its entry points and working directories; the [root setup notes](../README.md#getting-started) explain environment creation.
 
-From the repository root:
-
-```bash
-cd Machine-Learning/Tasks/TaskN
-```
+Assignment briefs, slides, and study plans are indexed under [course-materials](../course-materials/README.md). Solution code, datasets, results, and research reports remain here.
 
 ## Project 1 — Uber price prediction
 
-Team ML project (Streamlit). The **source lives in a separate GitHub repository**. This portfolio only keeps a short write-up and the assignment PDF.
+Team ML project (Streamlit). The **source lives in a separate GitHub repository**. This portfolio includes contribution evidence, a real interface preview, and a local demo walkthrough. The assignment is in the course-materials archive.
 
 See [`Project1/README.md`](Project1/README.md).
 
 ## Project 2 — Smart Home voice control
 
-Production-style voice control (Streamlit + Arduino + speaker/command models). Maintained as a **standalone repository**. This portfolio only links to it.
+Voice control (Streamlit + Arduino + speaker/command models). Maintained as a **standalone repository**. This portfolio includes contribution evidence, a real dashboard preview, and interface/hardware demo instructions.
 
 See [`Project2/README.md`](Project2/README.md).

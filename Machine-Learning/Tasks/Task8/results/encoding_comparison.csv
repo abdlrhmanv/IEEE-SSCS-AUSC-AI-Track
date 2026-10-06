@@ -1,0 +1,7 @@
+encoding,model,parameter,value,refit_train_F1,test_F1,refit_convergence_warnings,validation_F1
+ordinal,knn,K,2.0,1.0,1.0,0,1.0
+ordinal,sgd,learning_rate,0.028,0.9586084715735224,0.9601542416452442,0,0.9645569620253165
+ordinal,logreg,max_iter,1000.0,0.9597562930896264,0.9610223642172524,0,0.9617346938775511
+onehot,knn,K,2.0,0.9998403830806065,0.9987212276214834,0,1.0
+onehot,sgd,learning_rate,0.001,0.9998403830806065,0.9987212276214834,0,1.0
+onehot,logreg,max_iter,1000.0,1.0,1.0,0,1.0

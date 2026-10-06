@@ -14,17 +14,18 @@ This task for the **IEEE SSCS AUSC AI Team** focuses on **NumPy**. It consists o
 
 ## 📂 Project Structure
 
-```
+```text
 Task1/
 ├── NumPy Assignment/
 │   ├── Code/
 │   │   ├── Core NumPy Operations/
-│   │   │   └── main.py          # Grades array: means, filtering, bonus, normalization, flatten
+│   │   │   └── main.py
 │   │   └── Linear Regression from Scratch (Normal Equation)/
-│   │       └── main.py          # House price prediction via normal equation
+│   │       └── main.py
 │   └── Research/
-│       └── Research.pdf
-└── README.md
+│       └── The Normal Equation, and Handling Multicollinearity.pdf
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -46,6 +47,8 @@ NumPy-based operations on a grades matrix (students × subjects):
 ### ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
 cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Core NumPy Operations"
 python main.py
 ```
@@ -63,6 +66,8 @@ Predict house price from size (square meters) using the closed-form solution:
 ### ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task1/requirements.txt
 cd Machine-Learning/Tasks/Task1/"NumPy Assignment/Code/Linear Regression from Scratch (Normal Equation)"
 python main.py
 ```
@@ -75,17 +80,20 @@ Research document:
 
 | Document | Location |
 | -------- | -------- |
-| **Research.pdf** | `NumPy Assignment/Research/` |
+| **The Normal Equation, and Handling Multicollinearity.pdf** | `NumPy Assignment/Research/` |
 
 ---
 
 ## 🛠️ Requirements
 
-- **Python 3.x**
-- **NumPy** (`pip install numpy`)
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
 ## 👤 Author
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 1 materials](../../../course-materials/Machine-Learning/Task1). See the [course-materials index](../../../course-materials/README.md) for all weeks.

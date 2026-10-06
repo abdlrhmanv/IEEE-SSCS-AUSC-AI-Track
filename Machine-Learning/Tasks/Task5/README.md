@@ -18,16 +18,12 @@ Implemented models:
 
 ## 📂 Project Structure
 
-```
+```text
 Task5/
-├── task.ipynb                                      # Main notebook (full regression workflow)
-├── housing.csv                                     # California housing dataset
-├── Level-1_Task-5.pdf                              # Level 1 task sheet
-├── Machine Learning - sheet 1 - AI Team - IEEE.pdf
-├── Material/
-│   ├── Session5.pdf
-│   └── *.jpeg                                      # Supporting material/screenshots
-└── README.md
+├── housing.csv
+├── README.md
+├── requirements.txt
+└── task.ipynb
 ```
 
 ---
@@ -52,8 +48,10 @@ The notebook follows the assignment requirements step-by-step:
 ## ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task5
-jupyter notebook task.ipynb
+python -m pip install -r requirements.txt
+python -m jupyter notebook task.ipynb
 # Run all cells top to bottom
 ```
 
@@ -61,17 +59,7 @@ jupyter notebook task.ipynb
 
 ## 🛠️ Requirements
 
-- **Python 3.x**
-- **NumPy**
-- **Pandas**
-- **Matplotlib**
-- **Scikit-learn**
-
-Install dependencies:
-
-```bash
-pip install numpy pandas matplotlib scikit-learn
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
@@ -79,3 +67,7 @@ pip install numpy pandas matplotlib scikit-learn
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
 
+
+## Course materials
+
+Assignment and reference resources: [Task 5 materials](../../../course-materials/Machine-Learning/Task5). See the [course-materials index](../../../course-materials/README.md) for all weeks.

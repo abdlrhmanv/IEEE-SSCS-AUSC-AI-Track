@@ -13,28 +13,26 @@ This folder covers **binary classification / logistic regression** for the IEEE 
 | **3** | Medium | Logistic Regression **from scratch** (`classification.py` + `main.py`) |
 | **4** | Medium | Train/test on the **4D XOR** truth table |
 
-> **AI Assistance Note:** Some documentation comments and the typed BCE derivation were drafted with AI assistance, then reviewed. Task 1 must still be **copied by hand onto paper** for submission.
+> **AI Assistance Note:** Some documentation comments and the typed BCE derivation were drafted with AI assistance, then reviewed. The assignment requests a handwritten derivation; the PDF here is a typed reference, not evidence of a handwritten submission.
 
 ---
 
 ## Project Structure
 
-```
+```text
 Task7/
-├── classification.py                 # LogisticRegression class (fit / predict / evaluate)
-├── main.py                           # Train & evaluate on 4D XOR (+ AND sanity check)
 ├── plots/
-│   ├── xor_training_loss.png
-│   └── and_training_loss.png
+│   ├── and_training_loss.png
+│   └── xor_training_loss.png
 ├── Task1_BCE_Derivation/
-│   ├── BCE_Gradient_Derivation.pdf   # Typed reference — rewrite by hand
-│   └── BCE_Gradient_Derivation.html
+│   └── BCE_Gradient_Derivation.pdf
 ├── Task2_Sigmoid/
-│   ├── sigmoid_plot.py
-│   └── sigmoid_plot.png
-├── ML_1_IEEE_Level_1.pdf             # Assignment sheet
-├── Classification_IEEE_part 1.pdf    # Lecture / study material
-└── README.md
+│   ├── sigmoid_plot.png
+│   └── sigmoid_plot.py
+├── classification.py
+├── main.py
+├── README.md
+└── requirements.txt
 ```
 
 Required modular layout from the assignment:
@@ -57,13 +55,15 @@ Final result used in code:
 \nabla_w J = \tfrac{1}{m}\,X^\top(\hat{y}-y)
 \]
 
-See `Task1_BCE_Derivation/BCE_Gradient_Derivation.pdf` for every intermediate step, then **rewrite it by hand**.
+See `Task1_BCE_Derivation/BCE_Gradient_Derivation.pdf` for the typed derivation. The original brief specifies a handwritten submission.
 
 ---
 
 ## Task 2 — Sigmoid Plot
 
 ```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task7/requirements.txt
 cd Machine-Learning/Tasks/Task7
 python3 Task2_Sigmoid/sigmoid_plot.py
 ```
@@ -75,6 +75,8 @@ Produces `Task2_Sigmoid/sigmoid_plot.png`.
 ## Tasks 3 & 4 — Logistic Regression + 4D XOR
 
 ```bash
+# From the repository root, with your environment activated
+python -m pip install -r Machine-Learning/Tasks/Task7/requirements.txt
 cd Machine-Learning/Tasks/Task7
 python3 main.py
 ```
@@ -95,16 +97,14 @@ It also runs a **4D AND** sanity check (linearly separable) to show the same cod
 
 ## Requirements
 
-- Python 3.x
-- NumPy
-- Matplotlib (plots only)
-
-```bash
-pip install numpy matplotlib
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
 ## Author
 
 **Abdlrhman Hisham Ismail** — IEEE SSCS AUSC, AI Team
+
+## Course materials
+
+Assignment and reference resources: [Task 7 materials](../../../course-materials/Machine-Learning/Task7). See the [course-materials index](../../../course-materials/README.md) for all weeks.

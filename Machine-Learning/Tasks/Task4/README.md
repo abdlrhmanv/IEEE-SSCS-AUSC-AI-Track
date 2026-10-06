@@ -16,12 +16,12 @@ Main analysis file:
 
 ## 📂 Project Structure
 
-```
+```text
 Task4/
-├── zara_eda_task.ipynb         # Main notebook (comprehensive Zara sales EDA)
-├── Zara_sales_EDA.csv          # Dataset used in the analysis
-├── Task 1 - level 2.pdf        # Task description / assignment sheet
-└── README.md
+├── README.md
+├── requirements.txt
+├── zara_eda_task.ipynb
+└── Zara_sales_EDA.csv
 ```
 
 ---
@@ -43,8 +43,10 @@ The notebook is organized into the following analytical stages:
 ## ▶️ How to Run
 
 ```bash
+# From the repository root, with your environment activated
 cd Machine-Learning/Tasks/Task4
-jupyter notebook zara_eda_task.ipynb
+python -m pip install -r requirements.txt
+python -m jupyter notebook zara_eda_task.ipynb
 # Run all cells top to bottom
 ```
 
@@ -52,17 +54,7 @@ jupyter notebook zara_eda_task.ipynb
 
 ## 🛠️ Requirements
 
-- **Python 3.x**
-- **Pandas**
-- **NumPy**
-- **Matplotlib**
-- **Seaborn**
-
-Install dependencies:
-
-```bash
-pip install pandas numpy matplotlib seaborn
-```
+Install the packages in [requirements.txt](requirements.txt), including Jupyter for notebook tasks. Create and activate a virtual environment first; see the [root setup notes](../../../README.md#getting-started).
 
 ---
 
@@ -70,3 +62,7 @@ pip install pandas numpy matplotlib seaborn
 
 **Abdlrhman** — IEEE SSCS AUSC, AI Team
 
+
+## Course materials
+
+Assignment and reference resources: [Task 4 materials](../../../course-materials/Machine-Learning/Task4). See the [course-materials index](../../../course-materials/README.md) for all weeks.

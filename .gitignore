@@ -49,3 +49,13 @@ desktop.ini
 
 # ── Unrelated local scans (not part of this course repo) ──
 /Assignments/
+
+# Local submission archives
+/NLP/Week1/Task0/Task0_submission.zip
+/course-materials/submissions/NLP/Week1/task0-submission.zip
+
+# Local CI proposal: current GitHub connection lacks workflow scope
+/.github/workflows/task8-evaluation.yml
+
+# Local working documentation
+/docs/
