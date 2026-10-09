@@ -1,0 +1,75 @@
+{
+  "raw_rows": 159571,
+  "raw_shape": [
+    159571,
+    8
+  ],
+  "missing_text": 0,
+  "empty_text_removed": 0,
+  "duplicate_ids": 0,
+  "exact_text_duplicates": 0,
+  "normalized_duplicates_collapsed": 273,
+  "conflicting_normalized_groups": 41,
+  "duplicate_policy": "Collapse normalized identical comments; union positive labels; retain first ID/text.",
+  "usable_rows": 159298,
+  "vocabulary_size": 30000,
+  "source_csv_sha256": "bd4084611bd27c939ba98e5e63bc3e5a2c1a4e99477dcba46c829e4c986c429d",
+  "label_counts_raw": {
+    "toxic": 15294,
+    "severe_toxic": 1595,
+    "obscene": 8449,
+    "threat": 478,
+    "insult": 7877,
+    "identity_hate": 1405
+  },
+  "all_zero_fraction_raw": 0.8983211235124177,
+  "multi_label_fraction_raw": 0.06182201026502309,
+  "split_sizes": {
+    "train": 127438,
+    "validation": 15930,
+    "test": 15930
+  },
+  "split_positive_counts": {
+    "train": {
+      "toxic": 12204,
+      "severe_toxic": 1274,
+      "obscene": 6742,
+      "threat": 381,
+      "insult": 6286,
+      "identity_hate": 1120
+    },
+    "validation": {
+      "toxic": 1526,
+      "severe_toxic": 159,
+      "obscene": 842,
+      "threat": 47,
+      "insult": 786,
+      "identity_hate": 140
+    },
+    "test": {
+      "toxic": 1525,
+      "severe_toxic": 159,
+      "obscene": 843,
+      "threat": 48,
+      "insult": 786,
+      "identity_hate": 140
+    }
+  },
+  "train_token_length_quantiles": {
+    "0.5": 44.0,
+    "0.9": 183.0,
+    "0.95": 277.0,
+    "0.99": 705.6300000000047
+  },
+  "max_length": 128,
+  "truncated_fraction": {
+    "train": 0.16396208352296804,
+    "validation": 0.16202134337727558,
+    "test": 0.15944758317639673
+  },
+  "oov_token_fraction": {
+    "train": 0.021547176409901815,
+    "validation": 0.02686585854349238,
+    "test": 0.025260830652530385
+  }
+}

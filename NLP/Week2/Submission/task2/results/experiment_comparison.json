@@ -1,0 +1,58 @@
+[
+  {
+    "experiment": "unweighted_bce",
+    "best_epoch": 5,
+    "epochs_run": 6,
+    "validation_macro_ap": 0.5383850587207207,
+    "validation_macro_pr_auc": 0.5345713974516733,
+    "validation_macro_f1_at_05": 0.4310182225121731,
+    "validation_macro_f1_tuned": 0.5426508504066084,
+    "validation_micro_f1_tuned": 0.7170656586868263,
+    "thresholds": [
+      0.5199999999999999,
+      0.3,
+      0.5399999999999999,
+      0.05,
+      0.4499999999999999,
+      0.19999999999999996
+    ],
+    "positive_weights": [
+      9.442314147949219,
+      99.02983093261719,
+      17.9021053314209,
+      333.4829406738281,
+      19.273305892944336,
+      112.78392791748047
+    ],
+    "training_seconds": 168.63397703500027,
+    "parameters": 1953670
+  },
+  {
+    "experiment": "weighted_bce",
+    "best_epoch": 4,
+    "epochs_run": 6,
+    "validation_macro_ap": 0.553652111355458,
+    "validation_macro_pr_auc": 0.5511980516812961,
+    "validation_macro_f1_at_05": 0.4540875767622063,
+    "validation_macro_f1_tuned": 0.5592012408238984,
+    "validation_micro_f1_tuned": 0.7105297580117724,
+    "thresholds": [
+      0.82,
+      0.95,
+      0.9299999999999999,
+      0.95,
+      0.8799999999999999,
+      0.95
+    ],
+    "positive_weights": [
+      9.442314147949219,
+      99.02983093261719,
+      17.9021053314209,
+      333.4829406738281,
+      19.273305892944336,
+      112.78392791748047
+    ],
+    "training_seconds": 169.7433762089995,
+    "parameters": 1953670
+  }
+]

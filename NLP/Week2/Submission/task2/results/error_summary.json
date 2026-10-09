@@ -1,0 +1,6 @@
+{
+  "samples_with_any_error": 1474,
+  "total_test_samples": 15930,
+  "error_fraction_truncated": 0.065748031496063,
+  "error_fraction_not_truncated": 0.0976101568334578
+}
